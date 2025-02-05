@@ -1,0 +1,23 @@
+.stageTitle {
+    &__title {
+        color: #B83D44;
+        font-weight: bold;
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+
+    &__definition {
+        color: #000000;
+        font-weight: bold;
+        font-size: 22px;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        color: #000000;
+        font-size: 20px;
+        width: 35%;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+}

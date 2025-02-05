@@ -5,7 +5,7 @@ import FlowerOption from './FlowerOption'
 
 function Flower() {
 
-  const [step, setStep] = useState(0) // sul 5-ia
+  const [step, setStep] = useState(0)
 
   return (
     <div className='flower'>
@@ -28,7 +28,14 @@ function Flower() {
             </div>
             <div className='flower__quarter__titles'>
                 {item.circles.map((circle, i) =>
-                  <p>{circle.title}</p>
+                  <p>
+                    {circle.title.split('').map((char, i, arr) => {
+                      // let sizeToTake = 360/arr.length
+                      return (
+                        <span key={i} style={{transform: `rotate(${i*(120/arr.length)}deg)`}}>{char}</span>
+                      )
+                    })}
+                  </p>
                 )}
             </div>
         </div>

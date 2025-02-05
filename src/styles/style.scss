@@ -2,6 +2,25 @@
 @import './abstracts/variables';
 @import './abstracts/mixins';
 @import './abstracts/reset';
+@import './abstracts/animations';
 
-//layouts
+//components
+@import './components/landing';
 @import './components/flower';
+@import './components/stageTitle';
+@import './components/pyramid';
+@import './components/cover';
+
+.nextButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #B93D45;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

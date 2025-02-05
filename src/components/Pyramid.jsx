@@ -2,7 +2,9 @@ import React from 'react'
 
 function Pyramid() {
   return (
-    <div>Pyramid</div>
+    <div className='pyramid'>
+
+    </div>
   )
 }
 
