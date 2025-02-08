@@ -1,0 +1,116 @@
+.stage {
+    &__flowerPyramidContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__nextButton {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &.disabled {
+            cursor: unset;
+            background-color: grey!important;
+        }
+    }
+
+    .stageTitle__title, .flower__quarter__titles, .flower__quarter__circles div, .flower__quarter__images img, .stage__nextButton {
+        transition: 200ms;
+    }
+
+    &.step1 {
+        .stageTitle__title {
+            color: #B83D44!important;
+        }
+        .flower__quarter__titles {
+            color: #B83D44!important;
+        }
+        .flower__quarter__circles div {
+            border-color: #B83D44!important;
+        }
+        .flower__quarter__images img {
+            border-color: #B83D44!important;
+        }
+        .stage__nextButton {
+            background-color: #B83D44;
+        }
+    }
+    &.step2 {
+        .stageTitle__title {
+            color: #C39252!important;
+        }
+        .flower__quarter__titles {
+            color: #C39252!important;
+        }
+        .flower__quarter__circles div {
+            border-color: #C39252!important;
+        }
+        .flower__quarter__images img {
+            border-color: #C39252!important;
+        }
+        .stage__nextButton {
+            background-color: #C39252;
+        }
+    }
+    &.step3 {
+        .stageTitle__title {
+            color: #8B995D!important;
+        }
+        .flower__quarter__titles {
+            color: #8B995D!important;
+        }
+        .flower__quarter__circles div {
+            border-color: #8B995D!important;
+        }
+        .flower__quarter__images img {
+            border-color: #8B995D!important;
+        }
+        .stage__nextButton {
+            background-color: #8B995D;
+        }
+    }
+    &.step4 {
+        .stageTitle__title {
+            color: #6F3996!important;
+        }
+        .flower__quarter__titles {
+            color: #6F3996!important;
+        }
+        .flower__quarter__circles div {
+            border-color: #6F3996!important;
+        }
+        .flower__quarter__images img {
+            border-color: #6F3996!important;
+        }
+        .stage__nextButton {
+            background-color: #6F3996;
+        }
+    }
+    &.step5 {
+        .stageTitle__title {
+            color: #3B8B91!important;
+        }
+        .flower__quarter__titles {
+            color: #3B8B91!important;
+        }
+        .flower__quarter__circles div {
+            border-color: #3B8B91!important;
+        }
+        .flower__quarter__images img {
+            border-color: #3B8B91!important;
+        }
+        .stage__nextButton {
+            background-color: #3B8B91;
+        }
+    }
+}
+
+

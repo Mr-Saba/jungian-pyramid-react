@@ -1,34 +1,28 @@
 import React, { useState } from 'react'
-import flowerData from '../data/flower.json'
-import flowerOptions from '../data/flowerOptions.json'
-import FlowerOption from './FlowerOption'
+import {flowerStaticData} from '../data/flower.js'
+import FlowerOption from './FlowerOption.jsx'
 
-function Flower() {
-
-  const [step, setStep] = useState(0)
-
+function Flower({circleContent, onOptionSelect}) {
   return (
     <div className='flower'>
-      {flowerData.map((item, i) => (
+      {flowerStaticData.map((item, i) => (
         <div className='flower__quarter' key={i}>
             <div className='flower__quarter__sector'>
               <p>{item.sectorTitle}</p>
             </div>
             <div className='flower__quarter__images'>
-                {item.circles.map((circle, i) =>
-                  <>
-                    <img src={circle.imgSource} key={i} />
-                  </>
+                {item.circles.map((circle, j) =>
+                  <img src={circle.imgSource} key={j} />
                 )}
             </div>
             <div className='flower__quarter__circles'>
-                {item.circles.map((circle, i) =>
-                  <FlowerOption key={i} content={flowerOptions[step].options[i]} />
+                {circleContent[i].map((contentItem, j) =>
+                  <FlowerOption key={j} content={contentItem} onOptionSelect={() => {onOptionSelect(contentItem, item.circles[j].imgSource); console.log(item)}}/>
                 )}
             </div>
-            <div className='flower__quarter__titles'>
-                {item.circles.map((circle, i) =>
-                  <p>
+            {/* <div className='flower__quarter__titles'>
+                {item.circles.map((circle, j) =>
+                  <p key={j}>
                     {circle.title.split('').map((char, i, arr) => {
                       // let sizeToTake = 360/arr.length
                       return (
@@ -37,7 +31,7 @@ function Flower() {
                     })}
                   </p>
                 )}
-            </div>
+            </div> */}
         </div>
       ))}
     </div>
