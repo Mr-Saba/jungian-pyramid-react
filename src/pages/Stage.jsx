@@ -56,7 +56,7 @@ function Stage({onPageChange}) {
 
   const editOption = (index) => {
     if(selectedOptions[activeStep] === '') return
-
+ 
     setIsOptionSelected(false)
     setActiveStep(index)
     setSelectedOptions((prev) => {
