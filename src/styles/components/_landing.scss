@@ -27,27 +27,55 @@
         &__texts {
             color: white;
             width: 70%;
+            margin-top: calc(-12px * var(--app-scale));
+            &__starter {
+                h1:nth-child(1) {
+                    color: #F02D01;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-size: calc(56px * var(--app-scale));
+                    line-height: normal;
+                    white-space: nowrap;
+                }
+                h1:nth-child(2) {
+                    color: #FFFFFF;
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    font-size: calc(56px * var(--app-scale));
+                    margin-top: calc(10px * var(--app-scale));
+                }
+                p {
+                    color: #FFFFFF;
+                    font-weight: normal;
+                    font-size: calc(21px * var(--app-scale));
+                    margin-top: calc(40px * var(--app-scale));
+                }
+            }
+            
+            &__period {
+                width: 135%;
+                h1 {
+                    color: #FFFFFF;
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    font-size: calc(56px * var(--app-scale));
+                    line-height: normal;
+                }
+                input {
+                    border: calc(2px * var(--app-scale)) solid #D9D9D9;
+                    background: transparent;
+                    color: white;
+                    border-radius: calc(12px * var(--app-scale));
+                    width: calc(490px * var(--app-scale));
+                    height: calc(90px * var(--app-scale));
+                    font-size: calc(40px * var(--app-scale));
+                    padding: calc(16px * var(--app-scale));
+                    margin-top: calc(40px * var(--app-scale));
 
-            & > h1:nth-child(1) {
-                color: #F02D01;
-                text-transform: uppercase;
-                font-weight: bold;
-                font-size: calc(56px * var(--app-scale));
-                line-height: calc(41px * var(--app-scale));
-                white-space: nowrap;
-            }
-            & > h1:nth-child(2) {
-                color: #FFFFFF;
-                text-transform: uppercase;
-                font-weight: normal;
-                font-size: calc(56px * var(--app-scale));
-                margin-top: 10px;
-            }
-            & > p {
-                color: #FFFFFF;
-                font-weight: normal;
-                font-size: calc(21px * var(--app-scale));
-                margin-top: calc(40px * var(--app-scale));
+                    &.error {
+                        border-color: #F02D01;
+                    }
+                }
             }
         }
     }
@@ -56,5 +84,16 @@
         position: absolute;
         bottom: calc(80px * var(--app-scale));
         left: calc(100px * var(--app-scale));
+    }
+    &__startText {
+        position: absolute;
+        bottom: calc(80px * var(--app-scale));
+        right: calc(100px * var(--app-scale));
+        color: white;
+        text-transform: uppercase;
+        font-size: calc(52px * var(--app-scale));
+        line-height: calc(34px * var(--app-scale));
+        letter-spacing: calc(2px * var(--app-scale));
+        cursor: pointer;
     }
 }

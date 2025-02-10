@@ -6,7 +6,7 @@ import NextButton from '../assets/arrow-right-circle.svg'
 import DoneButton from '../assets/done-circle.png'
 import {flowerDynamicStepData} from '../data/flower.js'
 
-function Stage({onPageChange}) {
+function Stage({onPageChange, period}) {
   const [activeStep, setActiveStep] = useState(0)
   const [isOptionSelected, setIsOptionSelected] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState(['','','','','',])
@@ -79,7 +79,7 @@ function Stage({onPageChange}) {
   
   return (
     <div className={`stage step${activeStep+1}`}>
-        <StageTitle key={activeStep} titleContent={flowerDynamicStepData[activeStep].titles}/>
+        <StageTitle key={activeStep} titleContent={flowerDynamicStepData[activeStep].titles} period={period}/>
         <div className="stage__flowerPyramidContainer">
           <Flower circleContent={flowerDynamicStepData[activeStep].options} onOptionSelect={(content, imgSource) => selectOption(content, imgSource)} />
           <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} onEditOption={(index) => editOption(index)} />
