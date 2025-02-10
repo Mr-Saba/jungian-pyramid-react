@@ -3,7 +3,18 @@ import { useEffect } from "react";
 const useAppScale = () => {
     useEffect(() => {
         const handleResize = () => {
-            const scale = window.innerWidth > 1024 ? Math.max(1, Math.min(window.innerWidth / 1024, window.innerHeight / 768)) : 1;
+            const baseWidth = 1920;
+            const baseHeight = 1080;
+            const minWidth = 1024;
+            const minHeight = 768;
+            
+            const scale = window.innerWidth < minWidth || window.innerHeight < minHeight 
+              ? 1
+              : Math.min(
+                  window.innerWidth / baseWidth, 
+                  window.innerHeight / baseHeight
+                );
+                
             const doc = document.documentElement;
             doc.style.setProperty('--app-scale', `${scale}`);
         };

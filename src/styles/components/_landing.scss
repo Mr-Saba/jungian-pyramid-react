@@ -1,5 +1,5 @@
 .landing {    
-    padding-top: 50px;
+    padding-top: calc(50px * var(--app-scale));
     
     &__background {
         position: absolute;
@@ -15,12 +15,12 @@
         // padding: 88px 58px;
         position: relative;
         display: flex;
-        gap: 30px;
+        gap: calc(30px * var(--app-scale));
         width: 45%;
         
         &__cube {
             display: inline-block;
-            @include size(40px);
+            @include size(calc(40px * var(--app-scale)));
             background-color: #F02D01;
         }
 
@@ -32,28 +32,29 @@
                 color: #F02D01;
                 text-transform: uppercase;
                 font-weight: bold;
-                font-size: 56px;
-                line-height: 41px;
+                font-size: calc(56px * var(--app-scale));
+                line-height: calc(41px * var(--app-scale));
+                white-space: nowrap;
             }
             & > h1:nth-child(2) {
                 color: #FFFFFF;
                 text-transform: uppercase;
                 font-weight: normal;
-                font-size: 56px;
+                font-size: calc(56px * var(--app-scale));
                 margin-top: 10px;
             }
             & > p {
                 color: #FFFFFF;
                 font-weight: normal;
-                font-size: 21px;
-                margin-top: 40px;
+                font-size: calc(21px * var(--app-scale));
+                margin-top: calc(40px * var(--app-scale));
             }
         }
     }
 
     &__label {
         position: absolute;
-        bottom: 80px;
-        left: 100px;
+        bottom: calc(80px * var(--app-scale));
+        left: calc(100px * var(--app-scale));
     }
 }

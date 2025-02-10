@@ -13,17 +13,28 @@ function Stage({onPageChange}) {
   const [selectedOptionImages, setSelectedOptionImages] = useState(['','','','','',])
 
   const handleNext = () => {
+    // debugger
     if(!isOptionSelected) return
-    setIsOptionSelected(false)
+    if(selectedOptions[activeStep] !== '') setIsOptionSelected(false)
 
     if(activeStep !== 4) {
       setActiveStep(p => {
-        let nextBlankIndex = selectedOptions.indexOf(selectedOptions.find(item => item === ''))
+        let nextBlankIndex = p + 1//selectedOptions.indexOf(selectedOptions.find(item => item === ''))
         return nextBlankIndex
       })
     } else {
       onPageChange()
     }
+  }
+
+  const handlePrev = () => {
+    // debugger
+    setIsOptionSelected(selectedOptions[activeStep - 1] !== '')
+
+    setActiveStep(p => {
+      let prevFilledIndex = p - 1//selectedOptions.reverse().indexOf(selectedOptions.find(item => item !== ''))
+      return prevFilledIndex
+    })
   }
 
   const selectOption = (content, imgSource) => {
@@ -44,6 +55,8 @@ function Stage({onPageChange}) {
   }
 
   const editOption = (index) => {
+    if(selectedOptions[activeStep] === '') return
+
     setIsOptionSelected(false)
     setActiveStep(index)
     setSelectedOptions((prev) => {
@@ -71,8 +84,12 @@ function Stage({onPageChange}) {
           <Flower circleContent={flowerDynamicStepData[activeStep].options} onOptionSelect={(content, imgSource) => selectOption(content, imgSource)} />
           <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} onEditOption={(index) => editOption(index)} />
         </div>
+        <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
+            <img src={NextButton} />
+        </button>
         <button className={`stage__nextButton ${!isOptionSelected ? 'disabled' : ''}`} onClick={handleNext}>
-            <img src={!isFinishButtonVisible() ? NextButton : DoneButton} />
+            {/* <img src={!isFinishButtonVisible() ? NextButton : DoneButton} /> */}
+            <img src={NextButton} />
         </button>
     </div>
   )

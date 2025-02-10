@@ -28,6 +28,6 @@ img {
 
 .app {
     @include size(100vw, 100vh);
-    padding: 50px 60px;
+    padding: calc(50px * var(--app-scale)) calc(60px * var(--app-scale))
 }
 

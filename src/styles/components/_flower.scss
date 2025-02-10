@@ -3,7 +3,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 3px;
-    @include size(75vh);
+    @include size(calc(800px * var(--app-scale)));
     // max-width: 800px;
     // max-height: 800px;
 
@@ -20,10 +20,10 @@
             p {
                 color: white;
                 text-transform: uppercase;
-                font-size: 12px;
+                font-size: calc(12px * var(--app-scale));
                 white-space: pre-line;
                 letter-spacing: .5px;
-                font-size: 60%;
+                // font-size: 60%;
             }
         }
 
@@ -43,7 +43,7 @@
                 border-radius: 100%;
                 background-color: white;
                 @include flex(row, center, center);
-                padding: 10px;
+                padding: calc(10px * var(--app-scale));
                 color: black;
                 position: absolute;
                 cursor: pointer;
@@ -56,7 +56,7 @@
             }
 
             &__text {
-                font-size: 8px;
+                font-size: calc(10px * var(--app-scale));
                 display: inline-block;
                 text-align: center;
                 font-weight: 500;
@@ -66,8 +66,8 @@
             color: #B83D44;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 20px;
+            letter-spacing: calc(5px * var(--app-scale));
+            font-size: calc(20px * var(--app-scale));
 
             p {
                 position: absolute;

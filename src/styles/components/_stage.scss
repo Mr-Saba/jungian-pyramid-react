@@ -3,13 +3,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        // gap: calc(60px * var(--app-scale))
     }
-    &__nextButton {
+    &__nextButton, &__backButton {
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 100px;
-        height: 100px;
+        width: calc(100px * var(--app-scale));
+        height: calc(100px * var(--app-scale));
         border: none;
         display: flex;
         justify-content: center;
@@ -20,9 +21,22 @@
             cursor: unset;
             background-color: grey!important;
         }
+
+        img {
+            width: calc(36px * var(--app-scale));
+            height: calc(36px * var(--app-scale));
+        }
+    }
+    &__backButton {
+        right: calc(100px * var(--app-scale));
+        border-right: calc(1px * var(--app-scale)) solid white;
+
+        img {
+            transform: rotate(-180deg)
+        }
     }
 
-    .stageTitle__title, .flower__quarter__titles, .flower__quarter__circles div, .flower__quarter__images img, .stage__nextButton {
+    .stageTitle__title, .flower__quarter__titles, .flower__quarter__circles div, .flower__quarter__images img, .stage__nextButton, .stage__backButton {
         transition: 200ms;
     }
 
@@ -42,6 +56,9 @@
         .stage__nextButton {
             background-color: #B83D44;
         }
+        .stage__backButton {
+            // background-color: #B83D44;
+        }
     }
     &.step2 {
         .stageTitle__title {
@@ -58,6 +75,9 @@
         }
         .stage__nextButton {
             background-color: #C39252;
+        }
+        .stage__backButton {
+            background-color: #B83D44;
         }
     }
     &.step3 {
@@ -76,6 +96,9 @@
         .stage__nextButton {
             background-color: #8B995D;
         }
+        .stage__backButton {
+            background-color: #C39252;
+        }
     }
     &.step4 {
         .stageTitle__title {
@@ -93,6 +116,9 @@
         .stage__nextButton {
             background-color: #6F3996;
         }
+        .stage__backButton {
+            background-color: #8B995D;
+        }
     }
     &.step5 {
         .stageTitle__title {
@@ -109,6 +135,9 @@
         }
         .stage__nextButton {
             background-color: #3B8B91;
+        }
+        .stage__backButton {
+            background-color: #6F3996;
         }
     }
 }

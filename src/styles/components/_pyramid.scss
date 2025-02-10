@@ -1,8 +1,12 @@
 .pyramid {
     position: relative;
-    width: 50%;
-    min-width: 920px;
-    max-width: 1020px;
+    width: 52%;
+    //min-width: 920px;//calc(920px * var(--app-scale));
+    //max-width: 1020px;//calc(1020px * var(--app-scale));
+
+    & > img {
+        width: calc(620px * var(--app-scale))
+    }
 
     &__numerationContainer {
         position: absolute;
@@ -11,18 +15,18 @@
         display: flex;
         flex-direction: column-reverse;
         justify-content: space-between;
-        width: 245px;
-        height: calc(100% - 175px);
+        width: calc(245px * var(--app-scale));
+        height: calc(100% - calc(175px * var(--app-scale)));
 
         &__item {
-            width: 26px;
-            height: 26px;
+            width: calc(26px * var(--app-scale));
+            height: calc(26px * var(--app-scale));
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 13px;
+            font-size: calc(13px * var(--app-scale));
             position: absolute;
             transform: translate(-50%,-50%);
 
@@ -56,13 +60,13 @@
     &__optionsContainer {
         position: absolute;
         top: 0;
-        left: 34%;        
+        left: calc(315px* var(--app-scale));
         display: flex;
         flex-direction: column-reverse;
         justify-content: space-between;
         // padding: 30px 0;
-        width: 260px;
-        height: calc(100% - 158px);
+        width: calc(260px * var(--app-scale));//calc(260px * var(--app-scale));
+        height: calc(100% - calc(158px * var(--app-scale)));
         // transform: translateX(-25%);
 
         &__item {
@@ -70,11 +74,15 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 13px;
+            font-size: calc(13px * var(--app-scale));;
             position: absolute;
 
             &.hoverable {
                 cursor: pointer;
+            }
+
+            img {
+                width: calc(358px * var(--app-scale));
             }
             // transform: translate(-50%,-50%);
 
@@ -104,7 +112,7 @@
                 position: absolute;
                 left: 15%;
                 color: black;
-                font-size: 12px;
+                font-size: calc(12px * var(--app-scale));;
                 padding-right: 10%;
                 text-transform: uppercase;
                 font-weight: 600;

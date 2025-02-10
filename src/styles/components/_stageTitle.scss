@@ -2,23 +2,23 @@
     &__title {
         color: #B83D44;
         font-weight: bold;
-        font-size: 28px;
+        font-size: calc(28px * var(--app-scale));
         text-transform: uppercase;
     }
 
     &__definition {
         color: #000000;
         font-weight: bold;
-        font-size: 22px;
+        font-size: calc(22px * var(--app-scale));
         text-transform: uppercase;
     }
 
     &__description {
         color: #000000;
-        font-size: 20px;
+        font-size: calc(20px * var(--app-scale));
         width: 38%;
-        margin-top: 10px;
-        margin-bottom: 25px;
-        height: 48px;
+        margin-top: calc(10px * var(--app-scale));
+        margin-bottom: calc(25px * var(--app-scale));
+        height: calc(48px * var(--app-scale));
     }
 }
