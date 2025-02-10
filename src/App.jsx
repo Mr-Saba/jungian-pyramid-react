@@ -9,7 +9,7 @@ function App() {
 
   useAppScale()
 
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const [fade, setFade] = useState("fade-in");
 
   const handlePageChange = (newPage) => {
