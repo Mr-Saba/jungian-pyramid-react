@@ -48,7 +48,7 @@ function Pyramid({onPageChange, period, setPeriod}) {
         </div>
       </div>
       <img className='landing__label' src={landingLabel} />
-      <p className='landing__startText' onClick={handlePageChange}>start</p>
+      {period?.trim().length > 0 && <p className='landing__startText' onClick={handlePageChange}>start</p>}
       <Cover onClick={handleCoverClick} />
     </div>
   )
