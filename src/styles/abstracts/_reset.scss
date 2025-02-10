@@ -29,6 +29,14 @@ img {
 
 .app {
     @include size(100vw, 100vh);
-    padding: calc(50px * var(--app-scale)) calc(60px * var(--app-scale))
+    padding: calc(50px * var(--app-scale)) calc(60px * var(--app-scale));
+    // background: linear-gradient(
+    //     to top,
+    //     #FFB34F 0%,   /* Orange at the bottom */
+    //     #C0C0C0 25%,  /* Silver in the middle */
+    //     #FFFFFF 98%   /* White near the top */
+    // );
+    // background-position: 100%;
+
 }
 
