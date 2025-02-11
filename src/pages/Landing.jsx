@@ -1,13 +1,16 @@
 import React, { useRef, useState } from 'react'
+import { useNavigate } from 'react-router'
 import landingBackground from '../assets/landingBackground.jpg'
 import landingLabel from '../assets/landingLabel.png'
 import Cover from '../components/Cover'
 
-function Pyramid({onPageChange, period, setPeriod}) {
+function Pyramid({period, setPeriod}) {
 
   const [isStarterContentVisible, setIsStarterContentVisible] = useState(true)
 
   const inputRef = useRef()
+
+  const navigate = useNavigate()
 
   const handleCoverClick = () => {
     if(!period && isStarterContentVisible) {
@@ -18,7 +21,8 @@ function Pyramid({onPageChange, period, setPeriod}) {
     if(!period || period.trim() === '') {
       inputRef.current.classList.add('error')
     } else {
-      onPageChange()
+      navigate('/stage')
+      // onPageChange()
     }
   }
 
