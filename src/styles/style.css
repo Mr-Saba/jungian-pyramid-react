@@ -297,6 +297,8 @@ img {
   position: absolute;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 @media screen and (max-width: 1024px) {
   .flower__quarter__circles div {
@@ -589,6 +591,11 @@ img {
     height: 20vh;
   }
 }
+@media screen and (max-width: 1024px) and (max-height: 750px) {
+  .stageTitle {
+    height: 30vh;
+  }
+}
 
 .pyramid {
   position: relative;
@@ -617,7 +624,12 @@ img {
 }
 @media screen and (max-width: 415px) {
   .pyramid {
-    transform: scale(0.35) translate(-95%, -70%);
+    transform: scale(0.35) translate(-95%, -85%);
+  }
+}
+@media screen and (max-width: 360px) {
+  .pyramid {
+    transform: scale(0.3) translate(-120%, -130%);
   }
 }
 .pyramid > img {

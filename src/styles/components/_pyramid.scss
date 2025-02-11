@@ -18,7 +18,10 @@
         transform: scale(0.4) translate(-80%, -70%);
     }
     @media screen and (max-width: 415px) {
-        transform: scale(0.35) translate(-95%, -70%);
+        transform: scale(0.35) translate(-95%, -85%);
+    }
+    @media screen and (max-width: 360px) {
+        transform: scale(0.3) translate(-120%, -130%);
     }
 
     & > img {

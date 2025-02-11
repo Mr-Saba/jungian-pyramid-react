@@ -29,5 +29,8 @@
 
     @media screen and (max-width: 1024px) {
         height: 20vh;
+        @media screen and (max-height: 750px) {
+            height: 30vh;
+        }
     }
 }
