@@ -1,12 +1,40 @@
 .stage {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(
+            to top,
+            #ffedd6 0%,   /* Orange at the bottom */
+            #FFFFFF 40%   /* White near the top */
+        );
+        background-position: 100%;
+
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
+    }
+
     &__flowerPyramidContainer {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        @media screen and (max-width: 750px) {
+            height: 100vh;
+        }
         // gap: calc(60px * var(--app-scale))
     }
     &__nextButton, &__backButton {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         right: 0;
         width: calc(100px * var(--app-scale));
@@ -17,6 +45,16 @@
         align-items: center;
         cursor: pointer;
 
+        @media screen and (max-width: 1024px) {
+            width: 50px;
+            height: 50px;
+        }
+        @media screen and (max-width: 1024px) {
+            width: 50px;
+            height: 50px;
+        }
+
+
         &.disabled {
             cursor: unset;
             background-color: grey!important;
@@ -25,11 +63,20 @@
         img {
             width: calc(36px * var(--app-scale));
             height: calc(36px * var(--app-scale));
+
+            @media screen and (max-width: 1024px) {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
     &__backButton {
         right: calc(100px * var(--app-scale));
         border-right: calc(1px * var(--app-scale)) solid white;
+
+        @media screen and (max-width: 1024px) {
+            right: 50px;
+        }
 
         img {
             transform: rotate(-180deg)

@@ -31,6 +31,12 @@ img {
   height: 100vh;
   padding: calc(50px * var(--app-scale)) calc(60px * var(--app-scale));
 }
+@media screen and (max-width: 1024px) {
+  .app {
+    width: unset;
+    padding: 30px;
+  }
+}
 
 .fade-in {
   opacity: 1;
@@ -44,6 +50,11 @@ img {
 
 .landing {
   padding-top: calc(50px * var(--app-scale));
+}
+@media screen and (max-width: 1024px) {
+  .landing {
+    padding-top: 20px;
+  }
 }
 .landing__background {
   position: absolute;
@@ -60,11 +71,29 @@ img {
   gap: calc(30px * var(--app-scale));
   width: 45%;
 }
+@media screen and (max-width: 1024px) {
+  .landing__content {
+    width: 100%;
+    gap: 10px;
+  }
+}
 .landing__content__cube {
   display: inline-block;
   width: calc(40px * var(--app-scale));
   height: calc(40px * var(--app-scale));
   background-color: #F02D01;
+}
+@media screen and (max-width: 1024px) {
+  .landing__content__cube {
+    width: 26px;
+    height: 26px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .landing__content__cube {
+    width: 18px;
+    height: 18px;
+  }
 }
 .landing__content__texts {
   color: white;
@@ -79,6 +108,18 @@ img {
   line-height: normal;
   white-space: nowrap;
 }
+@media screen and (max-width: 1024px) {
+  .landing__content__texts__starter h1:nth-child(1) {
+    font-size: 40px;
+    white-space: pre-wrap;
+  }
+}
+@media screen and (max-width: 376px) {
+  .landing__content__texts__starter h1:nth-child(1) {
+    font-size: 30px;
+    line-height: 42px;
+  }
+}
 .landing__content__texts__starter h1:nth-child(2) {
   color: #FFFFFF;
   text-transform: uppercase;
@@ -86,11 +127,26 @@ img {
   font-size: calc(56px * var(--app-scale));
   margin-top: calc(10px * var(--app-scale));
 }
+@media screen and (max-width: 1024px) {
+  .landing__content__texts__starter h1:nth-child(2) {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .landing__content__texts__starter h1:nth-child(2) {
+    font-size: 30px;
+  }
+}
 .landing__content__texts__starter p {
   color: #FFFFFF;
   font-weight: normal;
   font-size: calc(21px * var(--app-scale));
   margin-top: calc(40px * var(--app-scale));
+}
+@media screen and (max-width: 1024px) {
+  .landing__content__texts__starter p {
+    font-size: 16px;
+  }
 }
 .landing__content__texts__period {
   width: 135%;
@@ -101,6 +157,18 @@ img {
   font-weight: normal;
   font-size: calc(56px * var(--app-scale));
   line-height: normal;
+}
+@media screen and (max-width: 1024px) {
+  .landing__content__texts__period h1 {
+    font-size: 40px;
+    white-space: pre-wrap;
+  }
+}
+@media screen and (max-width: 376px) {
+  .landing__content__texts__period h1 {
+    font-size: 30px;
+    line-height: 42px;
+  }
 }
 .landing__content__texts__period input {
   border: calc(2px * var(--app-scale)) solid #D9D9D9;
@@ -113,6 +181,13 @@ img {
   padding: calc(16px * var(--app-scale));
   margin-top: calc(40px * var(--app-scale));
 }
+@media screen and (max-width: 1024px) {
+  .landing__content__texts__period input {
+    width: 100%;
+    font-size: 24px;
+    height: 60px;
+  }
+}
 .landing__content__texts__period input.error {
   border-color: #F02D01;
 }
@@ -120,6 +195,18 @@ img {
   position: absolute;
   bottom: calc(80px * var(--app-scale));
   left: calc(100px * var(--app-scale));
+}
+@media screen and (max-width: 1024px) {
+  .landing__label {
+    bottom: 20px;
+    left: 65px;
+    width: 150px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .landing__label {
+    width: 120px;
+  }
 }
 .landing__startText {
   position: absolute;
@@ -132,6 +219,18 @@ img {
   letter-spacing: calc(2px * var(--app-scale));
   cursor: pointer;
 }
+@media screen and (max-width: 1024px) {
+  .landing__startText {
+    bottom: 20px;
+    right: 50px;
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .landing__startText {
+    font-size: 20px;
+  }
+}
 
 .flower {
   display: grid;
@@ -140,6 +239,13 @@ img {
   grid-gap: 3px;
   width: calc(800px * var(--app-scale));
   height: calc(800px * var(--app-scale));
+}
+@media screen and (max-width: 1024px) {
+  .flower {
+    width: 100%;
+    height: unset;
+    aspect-ratio: 1/1; /* Makes height equal to width */
+  }
 }
 .flower__quarter {
   position: relative;
@@ -159,11 +265,21 @@ img {
   white-space: pre-line;
   letter-spacing: 0.5px;
 }
+@media screen and (max-width: 1024px) {
+  .flower__quarter__sector p {
+    font-size: 1.4vw;
+  }
+}
 .flower__quarter__images img {
   position: absolute;
   width: 20%;
   border: 2px solid #B93D45;
   border-radius: 50%;
+}
+@media screen and (max-width: 1024px) {
+  .flower__quarter__images img {
+    border-width: 1px;
+  }
 }
 .flower__quarter__circles div {
   width: 34%;
@@ -182,15 +298,31 @@ img {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
+@media screen and (max-width: 1024px) {
+  .flower__quarter__circles div {
+    border-width: 2px;
+    padding: 5px;
+  }
+}
 .flower__quarter__circles div:hover {
   z-index: 1;
   transform: scale(1.25);
+}
+@media screen and (max-width: 500px) {
+  .flower__quarter__circles div:hover {
+    transform: scale(1.4);
+  }
 }
 .flower__quarter__circles__text {
   font-size: calc(10px * var(--app-scale));
   display: inline-block;
   text-align: center;
   font-weight: 500;
+}
+@media screen and (max-width: 1024px) {
+  .flower__quarter__circles__text {
+    font-size: 1.1vw;
+  }
 }
 .flower__quarter__titles {
   color: #B83D44;
@@ -446,10 +578,47 @@ img {
   margin-bottom: calc(25px * var(--app-scale));
   height: calc(48px * var(--app-scale));
 }
+@media screen and (max-width: 1024px) {
+  .stageTitle__description {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .stageTitle {
+    height: 20vh;
+  }
+}
 
 .pyramid {
   position: relative;
   width: 52%;
+}
+@media screen and (max-width: 1024px) {
+  .pyramid {
+    width: unset;
+    transform: scale(0.9) translateX(0);
+  }
+}
+@media screen and (max-width: 950px) {
+  .pyramid {
+    transform: scale(0.7) translate(-15%, -15%);
+  }
+}
+@media screen and (max-width: 750px) {
+  .pyramid {
+    transform: scale(0.5) translate(-40%, -40%);
+  }
+}
+@media screen and (max-width: 550px) {
+  .pyramid {
+    transform: scale(0.4) translate(-80%, -70%);
+  }
+}
+@media screen and (max-width: 415px) {
+  .pyramid {
+    transform: scale(0.35) translate(-95%, -70%);
+  }
 }
 .pyramid > img {
   width: calc(620px * var(--app-scale));
@@ -594,13 +763,41 @@ img {
   left: 0;
 }
 
+.stage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to top, #ffedd6 0%, #FFFFFF 40%);
+  background-position: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .stage::before {
+    display: none;
+  }
+}
 .stage__flowerPyramidContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 1024px) {
+  .stage__flowerPyramidContainer {
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+  }
+}
+@media screen and (max-width: 750px) {
+  .stage__flowerPyramidContainer {
+    height: 100vh;
+  }
+}
 .stage__nextButton, .stage__backButton {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   width: calc(100px * var(--app-scale));
@@ -611,6 +808,18 @@ img {
   align-items: center;
   cursor: pointer;
 }
+@media screen and (max-width: 1024px) {
+  .stage__nextButton, .stage__backButton {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .stage__nextButton, .stage__backButton {
+    width: 50px;
+    height: 50px;
+  }
+}
 .stage__nextButton.disabled, .stage__backButton.disabled {
   cursor: unset;
   background-color: grey !important;
@@ -619,9 +828,20 @@ img {
   width: calc(36px * var(--app-scale));
   height: calc(36px * var(--app-scale));
 }
+@media screen and (max-width: 1024px) {
+  .stage__nextButton img, .stage__backButton img {
+    width: 24px;
+    height: 24px;
+  }
+}
 .stage__backButton {
   right: calc(100px * var(--app-scale));
   border-right: calc(1px * var(--app-scale)) solid white;
+}
+@media screen and (max-width: 1024px) {
+  .stage__backButton {
+    right: 50px;
+  }
 }
 .stage__backButton img {
   transform: rotate(-180deg);

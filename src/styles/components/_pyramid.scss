@@ -4,6 +4,23 @@
     //min-width: 920px;//calc(920px * var(--app-scale));
     //max-width: 1020px;//calc(1020px * var(--app-scale));
 
+    @media screen and (max-width: 1024px) {
+        width: unset;
+        transform: scale(0.9) translateX(0);
+    }
+    @media screen and (max-width: 950px) {
+        transform: scale(0.7) translate(-15%, -15%);
+    }
+    @media screen and (max-width: 750px) {
+        transform: scale(0.5) translate(-40%, -40%);
+    }
+    @media screen and (max-width: 550px) {
+        transform: scale(0.4) translate(-80%, -70%);
+    }
+    @media screen and (max-width: 415px) {
+        transform: scale(0.35) translate(-95%, -70%);
+    }
+
     & > img {
         width: calc(620px * var(--app-scale))
     }

@@ -7,6 +7,12 @@
     // max-width: 800px;
     // max-height: 800px;
 
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+        height: unset;
+        aspect-ratio: 1 / 1; /* Makes height equal to width */
+    }
+
     &__quarter {
         position: relative;
 
@@ -24,6 +30,10 @@
                 white-space: pre-line;
                 letter-spacing: .5px;
                 // font-size: 60%;
+
+                @media screen and (max-width: 1024px) {
+                    font-size: 1.4vw;
+                }
             }
         }
 
@@ -34,6 +44,9 @@
                 border: 2px solid #B93D45;
                 border-radius: 50%;
                 // object-fit: cover;
+                @media screen and (max-width: 1024px) {
+                    border-width: 1px;
+                }
             }
         }
         &__circles {
@@ -49,9 +62,16 @@
                 cursor: pointer;
                 transition: transform 0.3s ease-in-out;
 
+                @media screen and (max-width: 1024px) {
+                    border-width: 2px;
+                    padding: 5px;
+                }
                 &:hover {
                     z-index: 1;
                     transform: scale(1.25);
+                    @media screen and (max-width: 500px) {
+                        transform: scale(1.4);
+                    }
                 }
             }
 
@@ -60,6 +80,9 @@
                 display: inline-block;
                 text-align: center;
                 font-weight: 500;
+                @media screen and (max-width: 1024px) {
+                    font-size: 1.1vw;
+                }
             }
         }
         &__titles {

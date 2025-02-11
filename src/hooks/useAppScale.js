@@ -7,8 +7,8 @@ const useAppScale = () => {
             const baseHeight = 1080;
             const minWidth = 1024;
             const minHeight = 768;
-            
-            const scale = window.innerWidth < minWidth || window.innerHeight < minHeight 
+
+            const scale = window.innerWidth < minWidth
               ? 1
               : Math.min(
                   window.innerWidth / baseWidth, 

@@ -20,5 +20,14 @@
         margin-top: calc(10px * var(--app-scale));
         margin-bottom: calc(25px * var(--app-scale));
         height: calc(48px * var(--app-scale));
+
+        @media screen and (max-width: 1024px) {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        height: 20vh;
     }
 }

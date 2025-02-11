@@ -1,6 +1,10 @@
 .landing {    
     padding-top: calc(50px * var(--app-scale));
-    
+
+    @media screen and (max-width: 1024px) {
+        padding-top: 20px;
+    }
+
     &__background {
         position: absolute;
         top: 0;
@@ -17,17 +21,33 @@
         display: flex;
         gap: calc(30px * var(--app-scale));
         width: 45%;
+
+        @media screen and (max-width: 1024px) {
+            width: 100%;
+            gap: 10px;
+        }
         
         &__cube {
             display: inline-block;
             @include size(calc(40px * var(--app-scale)));
             background-color: #F02D01;
+
+            @media screen and (max-width: 1024px) {
+                width: 26px;
+                height: 26px;
+            }
+            @media screen and (max-width: 376px) {
+                width: 18px;
+                height: 18px;
+            }
         }
 
         &__texts {
             color: white;
             width: 70%;
             margin-top: calc(-12px * var(--app-scale));
+
+            
             &__starter {
                 h1:nth-child(1) {
                     color: #F02D01;
@@ -36,6 +56,15 @@
                     font-size: calc(56px * var(--app-scale));
                     line-height: normal;
                     white-space: nowrap;
+
+                    @media screen and (max-width: 1024px) {
+                        font-size: 40px;
+                        white-space: pre-wrap;
+                    }
+                    @media screen and (max-width: 376px) {
+                        font-size: 30px;
+                        line-height: 42px;
+                    }
                 }
                 h1:nth-child(2) {
                     color: #FFFFFF;
@@ -43,12 +72,24 @@
                     font-weight: normal;
                     font-size: calc(56px * var(--app-scale));
                     margin-top: calc(10px * var(--app-scale));
+
+                    @media screen and (max-width: 1024px) {
+                        font-size: 40px;
+                    }
+                    @media screen and (max-width: 376px) {
+                        font-size: 30px;
+                    }
+
                 }
                 p {
                     color: #FFFFFF;
                     font-weight: normal;
                     font-size: calc(21px * var(--app-scale));
                     margin-top: calc(40px * var(--app-scale));
+
+                    @media screen and (max-width: 1024px) {
+                        font-size: 16px;
+                    }
                 }
             }
             
@@ -60,6 +101,15 @@
                     font-weight: normal;
                     font-size: calc(56px * var(--app-scale));
                     line-height: normal;
+
+                    @media screen and (max-width: 1024px) {
+                        font-size: 40px;
+                        white-space: pre-wrap;
+                    }
+                    @media screen and (max-width: 376px) {
+                        font-size: 30px;
+                        line-height: 42px;
+                    }
                 }
                 input {
                     border: calc(2px * var(--app-scale)) solid #D9D9D9;
@@ -71,6 +121,13 @@
                     font-size: calc(40px * var(--app-scale));
                     padding: calc(16px * var(--app-scale));
                     margin-top: calc(40px * var(--app-scale));
+
+                    @media screen and (max-width: 1024px) {
+                        width: 100%;
+                        font-size: 24px;
+                        // padding: 8px;
+                        height: 60px;
+                    }
 
                     &.error {
                         border-color: #F02D01;
@@ -84,6 +141,14 @@
         position: absolute;
         bottom: calc(80px * var(--app-scale));
         left: calc(100px * var(--app-scale));
+        @media screen and (max-width: 1024px) {
+            bottom: 20px;
+            left: 65px;
+            width: 150px;
+        }
+        @media screen and (max-width: 376px) {
+            width: 120px;
+        }
     }
     &__startText {
         position: absolute;
@@ -95,5 +160,14 @@
         line-height: calc(34px * var(--app-scale));
         letter-spacing: calc(2px * var(--app-scale));
         cursor: pointer;
+
+        @media screen and (max-width: 1024px) {
+            bottom: 20px;
+            right: 50px;
+            font-size: 35px;
+        }
+        @media screen and (max-width: 376px) {
+            font-size: 20px;
+        }
     }
 }
