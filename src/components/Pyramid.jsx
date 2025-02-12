@@ -1,6 +1,7 @@
 import React from 'react'
 import PyramidImg from '../assets/pyramid.png'
-import {pyramidTextBackgroundImages} from '../data/pyramid.js'
+import {pyramidTextBackgroundImages, pyramidTitles} from '../data/pyramid.js'
+import {flowerDynamicStepData} from '../data/flower.js'
 
 function Pyramid({selectedOptions, selectedOptionImages, onEditOption}) {
   return (
@@ -11,6 +12,11 @@ function Pyramid({selectedOptions, selectedOptionImages, onEditOption}) {
           ))}
         </div>
         <img src={PyramidImg} />
+        <div className='pyramid__titlesContainer'>
+          {pyramidTitles.map(item => (
+            <p className='pyramid__titlesContainer__item'>{item}</p>
+          ))}
+        </div>
         <div className='pyramid__optionsContainer'>
           {pyramidTextBackgroundImages.map((item, index) => (
             <div className={`pyramid__optionsContainer__item ${selectedOptions[index] ? 'hoverable' : ''}`} key={index} onClick={() => onEditOption(index)}>

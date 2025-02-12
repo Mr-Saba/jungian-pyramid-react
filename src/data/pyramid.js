@@ -7,5 +7,8 @@ import image5 from '../assets/pyramidTextBackgrounds/5.png'
 const pyramidTextBackgroundImages = [
     image1, image2, image3, image4, image5
 ]
+const pyramidTitles = [
+    'behaviors', 'traits', 'core\ncompetencies', 'propositions', 'core\nvalues'
+]
 
-export {pyramidTextBackgroundImages}
+export {pyramidTextBackgroundImages, pyramidTitles}

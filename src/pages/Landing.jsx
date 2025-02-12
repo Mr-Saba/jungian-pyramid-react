@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import landingBackground from '../assets/landingBackground.jpg'
-import landingLabel from '../assets/landingLabel.png'
+import Label from '../assets/Label.png'
 import Cover from '../components/Cover'
 
 function Pyramid({period, setPeriod}) {
@@ -51,7 +51,7 @@ function Pyramid({period, setPeriod}) {
           }
         </div>
       </div>
-      <img className='landing__label' src={landingLabel} />
+      <img className='landing__label' src={Label} />
       {period?.trim().length > 0 && <p className='landing__startText' onClick={handlePageChange}>start</p>}
       <Cover onClick={handleCoverClick} />
     </div>
