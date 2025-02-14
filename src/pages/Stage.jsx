@@ -31,6 +31,8 @@ function Stage({period}) {
   }
 
   const handlePrev = () => {
+    if(activeStep === 0) return
+
     // debugger
     setIsOptionSelected(selectedOptions[activeStep - 1] !== '')
 
