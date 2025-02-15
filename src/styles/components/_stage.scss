@@ -106,6 +106,9 @@
         .stage__backButton {
             // background-color: #B83D44;
         }
+        .flower__quarter__titles path {
+            fill: #B83D44;
+        }
     }
     &.step2 {
         .stageTitle__title {
@@ -125,6 +128,9 @@
         }
         .stage__backButton {
             background-color: #B83D44;
+        }
+        .flower__quarter__titles path {
+            fill: #C39252;
         }
     }
     &.step3 {
@@ -146,6 +152,9 @@
         .stage__backButton {
             background-color: #C39252;
         }
+        .flower__quarter__titles path {
+            fill: #8B995D;
+        }
     }
     &.step4 {
         .stageTitle__title {
@@ -166,6 +175,9 @@
         .stage__backButton {
             background-color: #8B995D;
         }
+        .flower__quarter__titles path {
+            fill: #6F3996;
+        }
     }
     &.step5 {
         .stageTitle__title {
@@ -185,6 +197,9 @@
         }
         .stage__backButton {
             background-color: #6F3996;
+        }
+        .flower__quarter__titles path {
+            fill: #3B8B91;
         }
     }
 }

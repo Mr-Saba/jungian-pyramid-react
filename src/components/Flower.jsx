@@ -21,20 +21,14 @@ function Flower({circleContent, onOptionSelect}) {
                 )}
             </div>
             <div className='flower__quarter__titles'>
-                {item.circles.map((circle, j) => (
-                  <p key={j}>
-                    {circle.title.split('').map((char, i, arr) => {
-                      return (
-                        <span 
-                          key={i} 
-                          style={{transform: `rotate(${i*12}deg)`}}
-                        >
-                          {char}
-                        </span>
-                      )
-                    })}
-                  </p>
-                ))}
+              {item.circles.map((circle, j) => (
+                <div
+                  key={j}
+                  dangerouslySetInnerHTML={{
+                    __html: circle.titleImg, // Your inline SVG here
+                  }}
+                />
+              ))}
             </div>
         </div>
       ))}

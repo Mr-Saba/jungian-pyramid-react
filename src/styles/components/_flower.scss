@@ -88,26 +88,14 @@
             }
         }
         &__titles {
-            color: #B83D44;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: calc(5px * var(--app-scale));
-            font-size: calc(20px * var(--app-scale));
-
-            p {
+            div {
                 position: absolute;
-                width: calc(100px * var(--app-scale));;
-            }
-
-            span {
-                // position: absolute;
-                width: calc(20px * var(--app-scale));
-                height: calc(85px * var(--app-scale));
-                left: 0;
-                top: 0;
-                transform-origin: bottom center;
-                font-weight: 900;
-                font-size: calc(16px * var(--app-scale));
+                pointer-events: none;
+                // width: calc(100px * var(--app-scale));
+                svg {
+                    width: calc(100px * var(--app-scale));
+                    height: calc(100px * var(--app-scale));
+                }
             }
         }
 
@@ -154,35 +142,18 @@
                     margin-right: 2.5%;
                 }
             }     
-            .flower__quarter__titles p {
+            .flower__quarter__titles div {
                 &:nth-child(1) {
                     bottom: 0;
-                    right: calc(27% + 10px + 20% + 34%);
-                    margin-bottom: 2.5%;
-                    // transform: 
-                    //     translateY(calc(-30px * var(--app-scale)))
-                    //     translateX(calc(20px * var(--app-scale)))
-                    //     rotate(220deg)
-                    // ;
+                    right: 73%;
                 }
                 &:nth-child(2) {
-                    bottom: calc(calc(27% + 10px + 20% + 34%) * 2/3);
-                    right: calc(calc(27% + 10px + 20% + 34%) * 2/3);
-                //     transform: 
-                //         translateY(calc(-45px * var(--app-scale)))
-                //         translateX(calc(-10px * var(--app-scale)))
-                //         rotate(-78deg)
-                // ;
+                    bottom: 50%;
+                    right: 51%;
                 }
                 &:nth-child(3) {
-                    bottom: calc(27% + 10px + 20% + 34%);
-                    right: 0;
-                    margin-right: 2.5%;
-                //     transform: 
-                //         translateY(calc(-35px * var(--app-scale)))
-                //         translateX(calc(-15px * var(--app-scale)))
-                //         rotate(-20deg)
-                // ;
+                    bottom: 84%;
+                    right: 13%;
                 }
             }        
         }
@@ -229,35 +200,18 @@
                     margin-left: 2.5%;
                 }
             }    
-            .flower__quarter__titles p {
+            .flower__quarter__titles div {
                 &:nth-child(1) {
-                    bottom: 0;
-                    left: calc(27% + 10px + 20% + 34%);
-                    margin-bottom: 2.5%;
-                    // transform: 
-                    //     translateY(calc(-94px * var(--app-scale)))
-                    //     translateX(calc(-10px * var(--app-scale)))
-                    //     rotate(50deg)
-                    // ;
+                    bottom: 4%;
+                    left: 79%;
                 }
                 &:nth-child(2) {
-                    bottom: calc(calc(27% + 10px + 20% + 34%) * 2/3);
-                    left: calc(calc(27% + 10px + 20% + 34%) * 2/3);
-                    // transform: 
-                    //     translateY(calc(-83px * var(--app-scale)))
-                    //     translateX(calc(-53px * var(--app-scale)))
-                    //     rotate(-20deg)
-                    // ;
+                    bottom: 36%;
+                    left: 43%;
                 }
                 &:nth-child(3) {
-                    bottom: calc(27% + 10px + 20% + 34%);
-                    left: 0;
-                    margin-left: 2.5%;
-                    // transform: 
-                    //     translateY(calc(-24px * var(--app-scale)))
-                    //     translateX(calc(60px * var(--app-scale)))
-                    //     rotate(0deg)
-                    // ;
+                    bottom: 84%;
+                    left: 13%;
                 }
             }   
         }
@@ -304,25 +258,18 @@
                     margin-right: 2.5%;
                 }
             } 
-            .flower__quarter__titles p {
+            .flower__quarter__titles div {
                 &:nth-child(1) {
                     top: 0;
-                    right: calc(27% + 10px + 20% + 34%);
-                    margin-top: 2.5%;
-                    // transform: 
-                    //     translateY(calc(60px * var(--app-scale)))
-                    //     translateX(calc(10px * var(--app-scale)))
-                    //     rotate(-110deg)
-                    // ;
+                    right: 81%;
                 }
                 &:nth-child(2) {
-                    top: calc(calc(27% + 10px + 20% + 34%) * 2/3);
-                    right: calc(calc(27% + 10px + 20% + 34%) * 2/3);
+                    top: 50%;
+                    right: 50%;
                 }
                 &:nth-child(3) {
-                    top: calc(27% + 10px + 20% + 34%);
+                    top: 81%;
                     right: 0;
-                    margin-right: 2.5%;
                 }
             }  
         }
@@ -366,20 +313,18 @@
                     margin-left: 2.5%;
                 }
             }
-            .flower__quarter__titles p {
+            .flower__quarter__titles div {
                 &:nth-child(1) {
                     top: 0;
-                    left: calc(27% + 10px + 20% + 34%);
-                    margin-top: 2.5%;
+                    left:  81%;
                 }
                 &:nth-child(2) {
-                    top: calc(calc(27% + 10px + 20% + 34%) * 2/3);
-                    left: calc(calc(27% + 10px + 20% + 34%) * 2/3);
+                    top: 50%;
+                    left: 50%;
                 }
                 &:nth-child(3) {
-                    top: calc(27% + 10px + 20% + 34%);
+                    top:  81%;
                     left: 0;
-                    margin-left: 2.5%;
                 }
             } 
         }
