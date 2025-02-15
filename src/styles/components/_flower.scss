@@ -92,9 +92,15 @@
                 position: absolute;
                 pointer-events: none;
                 // width: calc(100px * var(--app-scale));
+                transform: translate(50%, 50%);
                 svg {
-                    width: calc(100px * var(--app-scale));
-                    height: calc(100px * var(--app-scale));
+                    width: calc(200px * var(--app-scale));
+                    height: calc(200px * var(--app-scale));
+
+                    @media screen and (max-width: 1024px) {
+                        width: 23vw;
+                        height: 23vw;
+                    }
                 }
             }
         }
@@ -144,16 +150,16 @@
             }     
             .flower__quarter__titles div {
                 &:nth-child(1) {
-                    bottom: 0;
-                    right: 73%;
+                    bottom: 13%;
+                    right: 66%;
                 }
                 &:nth-child(2) {
-                    bottom: 50%;
-                    right: 51%;
+                    bottom: 47%;
+                    right: 48%;
                 }
                 &:nth-child(3) {
-                    bottom: 84%;
-                    right: 13%;
+                    bottom: 64%;
+                    right: 3%;
                 }
             }        
         }
@@ -202,16 +208,16 @@
             }    
             .flower__quarter__titles div {
                 &:nth-child(1) {
-                    bottom: 4%;
-                    left: 79%;
+                    bottom: 11%;
+                    left: 55%;
                 }
                 &:nth-child(2) {
-                    bottom: 36%;
-                    left: 43%;
+                    bottom: 48%;
+                    left: 23%;
                 }
                 &:nth-child(3) {
-                    bottom: 84%;
-                    left: 13%;
+                    bottom: 64%;
+                    left: -11%;
                 }
             }   
         }
@@ -260,16 +266,16 @@
             } 
             .flower__quarter__titles div {
                 &:nth-child(1) {
-                    top: 0;
-                    right: 81%;
+                    top: -12%;
+                    right: 65%;
                 }
                 &:nth-child(2) {
-                    top: 50%;
-                    right: 50%;
+                    top: 27%;
+                    right: 48%;
                 }
                 &:nth-child(3) {
-                    top: 81%;
-                    right: 0;
+                    top: 59%;
+                    right: 4%;
                 }
             }  
         }
@@ -315,16 +321,16 @@
             }
             .flower__quarter__titles div {
                 &:nth-child(1) {
-                    top: 0;
-                    left:  81%;
+                    top: -2%;
+                    left: 53%;
                 }
                 &:nth-child(2) {
-                    top: 50%;
-                    left: 50%;
+                    top: 28%;
+                    left: 28%;
                 }
                 &:nth-child(3) {
-                    top:  81%;
-                    left: 0;
+                    top: 57%;
+                    left: -18%;
                 }
             } 
         }
