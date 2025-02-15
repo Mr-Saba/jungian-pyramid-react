@@ -6,6 +6,7 @@
     @include size(calc(800px * var(--app-scale)));
     // max-width: 800px;
     // max-height: 800px;
+    overflow: hidden;
 
     @media screen and (max-width: 1024px) {
         width: 100%;
@@ -93,6 +94,7 @@
                 pointer-events: none;
                 // width: calc(100px * var(--app-scale));
                 transform: translate(50%, 50%);
+                overflow: hidden;
                 svg {
                     width: calc(200px * var(--app-scale));
                     height: calc(200px * var(--app-scale));
