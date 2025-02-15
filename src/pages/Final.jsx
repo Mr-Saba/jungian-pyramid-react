@@ -33,6 +33,7 @@ function Pyramid({period, setPeriod}) {
         </div>
       </div>
       <img className='final__label' src={Label} />
+      <p className='final__finishText'>finish</p>
     </div>
   )
 }

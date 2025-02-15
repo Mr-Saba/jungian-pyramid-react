@@ -135,4 +135,25 @@
             width: 120px;
         }
     }
+
+    &__finishText {
+        position: absolute;
+        bottom: calc(80px * var(--app-scale));
+        right: calc(100px * var(--app-scale));
+        color: black;
+        text-transform: uppercase;
+        font-size: calc(52px * var(--app-scale));
+        line-height: calc(34px * var(--app-scale));
+        letter-spacing: calc(2px * var(--app-scale));
+        cursor: pointer;
+
+        @media screen and (max-width: 1024px) {
+            bottom: 20px;
+            right: 50px;
+            font-size: 35px;
+        }
+        @media screen and (max-width: 376px) {
+            font-size: 20px;
+        }
+    }
 }
