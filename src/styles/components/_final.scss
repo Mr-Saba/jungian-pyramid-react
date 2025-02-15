@@ -19,13 +19,18 @@
         // padding: 88px 58px;
         position: relative;
         display: flex;
-        gap: calc(30px * var(--app-scale));
+        gap: calc(70px * var(--app-scale));
         flex-direction: column;
         width: 100%;
 
         @media screen and (max-width: 1024px) {
             width: 100%;
-            gap: 10px;
+            gap: 60px;
+        }
+
+        &__item {
+            display: flex;
+            gap: calc(30px * var(--app-scale));
         }
         
         &__cube {
@@ -47,42 +52,66 @@
             color: white;
             width: 100%;
             margin-top: calc(-12px * var(--app-scale));       
+            @media screen and (max-width: 800px) {
+                margin-top: -10px    
+            }
+            @media screen and (max-width: 600px) {
+                margin-top: -5px    
+            }
+
             &__period {
                 // width: 135%;
                 display: flex;
+                gap: calc(80px * var(--app-scale));     
+                @media screen and (max-width: 1024px) {
+                    flex-direction: column;
+                    gap: 20px;
+                }
                 h1 {
                     color: #000000;
                     text-transform: uppercase;
-                    font-weight: normal;
-                    font-size: calc(56px * var(--app-scale));
+                    font-weight: 500;
+                    font-size: calc(48px * var(--app-scale));
                     line-height: normal;
+                    width: 50%;
 
                     @media screen and (max-width: 1024px) {
-                        font-size: 40px;
+                        // font-size: 30px;
                         white-space: pre-wrap;
+                        width: 100%;
+                        font-size: 5vw;
                     }
-                    @media screen and (max-width: 376px) {
-                        font-size: 30px;
-                        line-height: 42px;
+                    @media screen and (max-width: 500px) {
+                        // font-size: 20px;
+                        // line-height: 42px;
                     }
                 }
-                input {
+                textarea {
+                    resize: none;
                     border: calc(2px * var(--app-scale)) solid #000000;
                     background: transparent;
                     color: #000000;
                     border-radius: calc(12px * var(--app-scale));
                     width: calc(490px * var(--app-scale));
-                    height: calc(90px * var(--app-scale));
+                    height: calc(190px * var(--app-scale));
                     font-size: calc(40px * var(--app-scale));
                     padding: calc(16px * var(--app-scale));
-                    margin-top: calc(40px * var(--app-scale));
+                    margin-top: calc(12px * var(--app-scale));
                     width: 50%;
+                    overflow: auto;
+                    scrollbar-width: none;  
 
                     @media screen and (max-width: 1024px) {
                         width: 100%;
                         font-size: 24px;
+                        padding: 8px;
+                        height: 90px;
+                    }
+                    @media screen and (max-width: 500px) {
+                        width: 100%;
+                        font-size: 16px;
                         // padding: 8px;
-                        height: 60px;
+                        height: 50px;
                     }
 
                     &.error {

@@ -5,7 +5,7 @@ const useAppScale = () => {
         const handleResize = () => {
             const baseWidth = 1920;
             const baseHeight = 1080;
-            const minWidth = 1024;
+            const minWidth = 1023;
             const minHeight = 768;
 
             const scale = window.innerWidth < minWidth

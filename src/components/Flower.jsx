@@ -20,18 +20,22 @@ function Flower({circleContent, onOptionSelect}) {
                   <FlowerOption key={j} content={contentItem} onOptionSelect={() => {onOptionSelect(contentItem, item.circles[j].imgSource); console.log(item)}}/>
                 )}
             </div>
-            {/* <div className='flower__quarter__titles'>
-                {item.circles.map((circle, j) =>
+            <div className='flower__quarter__titles'>
+                {item.circles.map((circle, j) => (
                   <p key={j}>
                     {circle.title.split('').map((char, i, arr) => {
-                      // let sizeToTake = 360/arr.length
                       return (
-                        <span key={i} style={{transform: `rotate(${i*(120/arr.length)}deg)`}}>{char}</span>
+                        <span 
+                          key={i} 
+                          style={{transform: `rotate(${i*12}deg)`}}
+                        >
+                          {char}
+                        </span>
                       )
                     })}
                   </p>
-                )}
-            </div> */}
+                ))}
+            </div>
         </div>
       ))}
     </div>
