@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import landingBackground from '../assets/landingBackground.jpg'
-import Label from '../assets/Label.png'
+import Label from '../assets/label.png'
 import Cover from '../components/Cover'
 
 function Pyramid({period, setPeriod}) {
