@@ -7,11 +7,10 @@ import NextButton from '../assets/arrow-right-circle.svg'
 import DoneButton from '../assets/done-circle.png'
 import {flowerDynamicStepData} from '../data/flower.js'
 
-function Stage({period}) {
+function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImages, setSelectedOptionImages, setSelectedStageAvatar}) {
+
   const [activeStep, setActiveStep] = useState(0)
   const [isOptionSelected, setIsOptionSelected] = useState(false)
-  const [selectedOptions, setSelectedOptions] = useState(['','','','','',])
-  const [selectedOptionImages, setSelectedOptionImages] = useState(['','','','','',])
 
   const [isPyramidFinished, setIsPyramidFinished] = useState(false)
 
@@ -26,6 +25,9 @@ function Stage({period}) {
 
   const handleNext = () => {
     // debugger
+    if(isPyramidFinished) {
+      navigate('/final')
+    }
     if(!isOptionSelected) return
     if(selectedOptions[activeStep] !== '') setIsOptionSelected(false)
 
@@ -87,18 +89,18 @@ function Stage({period}) {
     });
   }
 
-  const isFinishButtonVisible = () => {
-    let isVisible = activeStep === 4
-    return isVisible;
+  const handleUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file); // Create temporary URL for preview
+      setUploadedImages([...uploadedImages, imageUrl]); // Add new image to the list
+    }
   }
 
-  // const handleUpload = (event) => {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const imageUrl = URL.createObjectURL(file); // Create temporary URL for preview
-  //     setUploadedImages([...uploadedImages, imageUrl]); // Add new image to the list
-  //   }
-  // }
+  const handleImageSelect = (e) => {
+    setSelectedStageAvatar(e.target.src)
+    setIsOptionSelected(true)
+  }
   
   return (
     <div className={`stage step${activeStep+1}`}>
@@ -122,29 +124,32 @@ function Stage({period}) {
             </div>
             <div className="stage__imageContainer">
               {
-                Array.from({ length: 15 }).map((_, index) => (
-                  <img className="stage__imageContainer__item" key={index} src={`/assets/personalImages/${index + 1}.jpg`} onClick={() => setIsOptionSelected(true)} />
+                Array.from({ length: 15 }).concat(uploadedImages).map((item, index) => (
+                  <img 
+                    className={`stage__imageContainer__item `} 
+                    key={index} 
+                    src={index >= 15 ? item : `/assets/avatars/${index + 1}.jpg`} 
+                    onClick={handleImageSelect} 
+                  />
                 ))
               }
-              {/* {
-                uploadedImages.map((item, index) => (
-                  <img className="stage__imageContainer__item" key={index} src={item} onClick={() => setIsOptionSelected(true)} />
-                ))
-              } */}
+              <div>
+                upload image
+              </div>
             </div>
           </>
       }
-        <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
-            <img src={NextButton} />
-        </button>
-        <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
-            <img src={NextButton} />
-        </button>
-        <button className={`stage__nextButton ${!isOptionSelected ? 'disabled' : ''}`} onClick={handleNext}>
-            {/* <img src={!isFinishButtonVisible() ? NextButton : DoneButton} /> */}
-            <img src={NextButton} />
-        </button>
-        <button onClick={() => setIsPyramidFinished(p => !p)}>sadasdasd</button>
+
+      <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
+          <img src={NextButton} />
+      </button>
+      <button className={`stage__nextButton ${!isOptionSelected ? 'disabled' : ''} ${!isPyramidFinished ? 'done' : ''} `} onClick={handleNext}>
+          {/* <img src={NextButton} /> */}
+          <img src={!isPyramidFinished ? NextButton : DoneButton} />
+      </button>
+
+
+      <button onClick={() => setIsPyramidFinished(p => !p)}>sadasdasd</button>
     </div>
   )
 }

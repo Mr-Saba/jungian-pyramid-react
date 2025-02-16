@@ -3,7 +3,7 @@ import PyramidImg from '../assets/pyramid.png'
 import {pyramidTextBackgroundImages, pyramidTitles} from '../data/pyramid.js'
 import {flowerDynamicStepData} from '../data/flower.js'
 
-function Pyramid({selectedOptions, selectedOptionImages, onEditOption, activeStep}) {
+function Pyramid({selectedOptions, selectedOptionImages, onEditOption}) {
   return (
     <div className='pyramid'>
         <div className='pyramid__numerationContainer'>

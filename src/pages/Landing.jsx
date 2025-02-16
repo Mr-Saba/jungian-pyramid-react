@@ -17,6 +17,7 @@ function Pyramid({period, setPeriod}) {
       setIsStarterContentVisible(false)
     } 
   }
+  
   const handlePageChange = () => {
     if(!period || period.trim() === '') {
       inputRef.current.classList.add('error')
