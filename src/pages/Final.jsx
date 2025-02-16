@@ -20,7 +20,7 @@ function Pyramid({period, setPeriod}) {
               <h1>If you had to summarize your personal brand vision in one powerful sentence, what would it be?</h1>
               <textarea></textarea>
             </div>
-          </div>
+          </div> 
         </div>
         <div className='final__content__item'>
           <div className='final__content__cube'></div>
