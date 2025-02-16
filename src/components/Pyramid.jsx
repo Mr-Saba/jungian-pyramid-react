@@ -14,7 +14,7 @@ function Pyramid({selectedOptions, selectedOptionImages, onEditOption, activeSte
         <img src={PyramidImg} />
         <div className='pyramid__titlesContainer'>
           {pyramidTitles.map((item, j) => {
-            if(activeStep >= j && selectedOptions[j]) {
+            if(selectedOptions[j]) {
               return <p className='pyramid__titlesContainer__item'>{item}</p>
             }
           })}
