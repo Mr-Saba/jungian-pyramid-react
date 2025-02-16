@@ -30,7 +30,7 @@ function Pyramid({period, setPeriod}) {
               <textarea></textarea>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
       <img className='final__label' src={Label} />
       <p className='final__finishText'>finish</p>
