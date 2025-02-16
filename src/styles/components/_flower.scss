@@ -71,12 +71,12 @@
                     border-width: 2px;
                     padding: 5px;
                 }
-                
+
                 &:hover {
                     z-index: 1;
-                    transform: scale(1.25);
+                    transform: scale(1.5);
                     @media screen and (max-width: 500px) {
-                        transform: scale(1.4);
+                        transform: scale(1.5);
                     }
                 }
             }
