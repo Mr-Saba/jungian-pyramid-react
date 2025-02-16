@@ -87,7 +87,7 @@ function Stage({period}) {
         <StageTitle key={activeStep} titleContent={flowerDynamicStepData[activeStep].titles} period={period}/>
         <div className="stage__flowerPyramidContainer">
           <Flower circleContent={flowerDynamicStepData[activeStep].options} onOptionSelect={(content, imgSource) => selectOption(content, imgSource)} />
-          <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} onEditOption={(index) => editOption(index)} />
+          <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} onEditOption={(index) => editOption(index)} activeStep={activeStep} />
         </div>
         <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
             <img src={NextButton} />
