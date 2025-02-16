@@ -10,18 +10,6 @@ import ruler from '../assets/flower/images/ruler.png'
 import lover from '../assets/flower/images/lover.png'
 import trickster from '../assets/flower/images/trickster.png'
 import innocent from '../assets/flower/images/innocent.png'
-import everypersonTitle from '../assets/flower/titles/everyperson.svg'
-import explorerTitle from '../assets/flower/titles/explorer.svg'
-import wiseTitle from '../assets/flower/titles/wise.svg'
-import magicianTitle from '../assets/flower/titles/magician.svg'
-import revolutionaryTitle from '../assets/flower/titles/revolutionary.svg'
-import heroTitle from '../assets/flower/titles/hero.svg'
-import creatorTitle from '../assets/flower/titles/creator.svg'
-import caregiverTitle from '../assets/flower/titles/caregiver.svg'
-import rulerTitle from '../assets/flower/titles/ruler.svg'
-import loverTitle from '../assets/flower/titles/lover.svg'
-import tricksterTitle from '../assets/flower/titles/trickster.svg'
-import innocentTitle from '../assets/flower/titles/innocent.svg'
 
 const flowerStaticData = [
     {

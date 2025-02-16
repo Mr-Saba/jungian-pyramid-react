@@ -13,7 +13,16 @@ function Stage({period}) {
   const [selectedOptions, setSelectedOptions] = useState(['','','','','',])
   const [selectedOptionImages, setSelectedOptionImages] = useState(['','','','','',])
 
+  const [isPyramidFinished, setIsPyramidFinished] = useState(false)
+
+  const [uploadedImages, setUploadedImages] = useState([])
+
   const navigate = useNavigate()
+
+  useEffect(() => {
+    // setActiveStep(4)
+    // setIsPyramidFinished(true)
+  }, [])
 
   const handleNext = () => {
     // debugger
@@ -26,7 +35,7 @@ function Stage({period}) {
         return nextBlankIndex
       })
     } else {
-      navigate('/final')
+      setIsPyramidFinished(true)
     }
   }
 
@@ -40,6 +49,8 @@ function Stage({period}) {
       let prevFilledIndex = p - 1//selectedOptions.reverse().indexOf(selectedOptions.find(item => item !== ''))
       return prevFilledIndex
     })
+    
+    setIsPyramidFinished(false)
   }
 
   const selectOption = (content, imgSource) => {
@@ -81,14 +92,51 @@ function Stage({period}) {
     return isVisible;
   }
 
+  // const handleUpload = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const imageUrl = URL.createObjectURL(file); // Create temporary URL for preview
+  //     setUploadedImages([...uploadedImages, imageUrl]); // Add new image to the list
+  //   }
+  // }
   
   return (
     <div className={`stage step${activeStep+1}`}>
-        <StageTitle key={activeStep} titleContent={flowerDynamicStepData[activeStep].titles} period={period}/>
-        <div className="stage__flowerPyramidContainer">
-          <Flower circleContent={flowerDynamicStepData[activeStep].options} onOptionSelect={(content, imgSource) => selectOption(content, imgSource)} />
-          <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} onEditOption={(index) => editOption(index)} activeStep={activeStep} />
-        </div>
+      {
+        !isPyramidFinished ? 
+          <>
+            <div className="stage__titleContainer">
+              <h1 className="stage__titleContainer__title">{flowerDynamicStepData[activeStep].titles.title}</h1>
+              <p className="stage__titleContainer__definition">{flowerDynamicStepData[activeStep].titles.definition}</p>
+              <p className="stage__titleContainer__description">{flowerDynamicStepData[activeStep].titles.description.replace('. . .', period)}</p>
+            </div>
+            <div className="stage__flowerPyramidContainer">
+              <Flower circleContent={flowerDynamicStepData[activeStep].options} onOptionSelect={(content, imgSource) => selectOption(content, imgSource)} />
+              <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} onEditOption={(index) => editOption(index)} activeStep={activeStep} />
+            </div>
+          </> 
+        : 
+          <>
+            <div key={activeStep} className="stage__titleContainer">
+              <p className="stage__titleContainer__question">Please select a symbol that resonates with your personal brand, or alternatively, upload or imagine one that reflects your professional persona</p>
+            </div>
+            <div className="stage__imageContainer">
+              {
+                Array.from({ length: 15 }).map((_, index) => (
+                  <img className="stage__imageContainer__item" key={index} src={`/assets/personalImages/${index + 1}.jpg`} onClick={() => setIsOptionSelected(true)} />
+                ))
+              }
+              {/* {
+                uploadedImages.map((item, index) => (
+                  <img className="stage__imageContainer__item" key={index} src={item} onClick={() => setIsOptionSelected(true)} />
+                ))
+              } */}
+            </div>
+          </>
+      }
+        <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
+            <img src={NextButton} />
+        </button>
         <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
             <img src={NextButton} />
         </button>
@@ -96,6 +144,7 @@ function Stage({period}) {
             {/* <img src={!isFinishButtonVisible() ? NextButton : DoneButton} /> */}
             <img src={NextButton} />
         </button>
+        <button onClick={() => setIsPyramidFinished(p => !p)}>sadasdasd</button>
     </div>
   )
 }
