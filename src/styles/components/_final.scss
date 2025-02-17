@@ -159,16 +159,24 @@
             justify-content: space-between;
             align-items: center;
 
-            & > img {
-                width: 45vh;
+            &__imageContainer {
+                width: 40%;
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 45vh;
+                }
             }
 
             @media screen and (max-width: 1024px) {
                 flex-wrap: wrap;
                 margin-bottom: 50px;
 
-                & > img {
-                    width: 80%;
+                &__imageContainer {
+                    width: 100%;
+                    img {
+                        width: 80%;
+                    }
                 }
             }
         }
