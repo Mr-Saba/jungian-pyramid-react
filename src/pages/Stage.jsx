@@ -163,7 +163,7 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
           <img src={NextButton} />
       </button>
 
-      <button onClick={() => setIsPyramidFinished(p => !p)}>sadasdasd</button>
+      {/* <button onClick={() => setIsPyramidFinished(p => !p)}>sadasdasd</button> */}
     </div>
   )
 }
