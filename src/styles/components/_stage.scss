@@ -56,6 +56,11 @@
             font-size: calc(22px * var(--app-scale));
             text-transform: uppercase;
             width: 38%;
+            margin-bottom: 20px;
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+                height: auto;
+            }
         }
     
         @media screen and (max-width: 1024px) {
@@ -106,7 +111,7 @@
             &.upload {
                 background-color: grey;
                 aspect-ratio: 1 / 1;
-                
+
                 & label {
                     color: #000000;
                     font-weight: bold;

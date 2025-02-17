@@ -1,7 +1,6 @@
 import React from 'react'
 import PyramidImg from '../assets/pyramid.png'
 import {pyramidTextBackgroundImages, pyramidTitles} from '../data/pyramid.js'
-import {flowerDynamicStepData} from '../data/flower.js'
 
 function Pyramid({selectedOptions, selectedOptionImages}) {
   return (
@@ -15,7 +14,7 @@ function Pyramid({selectedOptions, selectedOptionImages}) {
         <div className='pyramid__titlesContainer'>
           {pyramidTitles.map((item, j) => {
             if(selectedOptions[j]) {
-              return <p className='pyramid__titlesContainer__item'>{item}</p>
+              return <p className='pyramid__titlesContainer__item' key={j}>{item}</p>
             }
           })}
         </div>

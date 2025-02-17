@@ -34,6 +34,7 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
       setIsOptionSelected(selectedOptions[activeStep + 1] !== '')
     } else {
       setIsPyramidFinished(true)
+      setIsOptionSelected(false)
     }
   }
 
@@ -120,7 +121,7 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
           </> 
         : 
           <>
-            <div key={activeStep} className="stage__titleContainer">
+            <div key={activeStep} className="">
               <p className="stage__titleContainer__question">Please select a symbol that resonates with your personal brand, or alternatively, upload or imagine one that reflects your professional persona</p>
             </div>
             <div className="stage__imageContainer">
