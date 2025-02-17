@@ -5,9 +5,6 @@ import Label from '../assets/label.png'
 import Pyramid from '../components/Pyramid'
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import { saveAs } from 'file-saver';
-import { pdf } from '@react-pdf/renderer';
-import App from '../App'
 
 function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAvatar}) {
 
@@ -19,25 +16,21 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
   const [isPdfDownloading, setIsPdfDownloading] = useState(false)
 
   const handleDownloadPDF = async () => {
-    // const hiddenElements = document.querySelectorAll(".hide-in-pdf"); // Select elements to hide
+    const hiddenElements = document.querySelectorAll(".hide-in-pdf"); // Select elements to hide
 
-    // hiddenElements.forEach(el => el.style.display = "none");
+    hiddenElements.forEach(el => el.style.display = "none");
 
-    // html2canvas(document.querySelector('.app'), { scale: 2 }).then((canvas) => {
-    //   const imgData = canvas.toDataURL("image/png");
-    //   const pdf = new jsPDF("p", "mm", "a4"); // Portrait mode, millimeters, A4 size
-    //   const imgWidth = 210;
-    //   const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    html2canvas(document.querySelector('.app'), { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4"); // Portrait mode, millimeters, A4 size
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-    //   pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-    //   pdf.save("download.pdf");
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.save("download.pdf");
 
-    //   hiddenElements.forEach(el => el.style.display = "");
-    // });
-
-    const fileName = 'test.pdf';
-    const blob = await pdf(<App />).toBlob();
-    saveAs(blob, fileName);
+      hiddenElements.forEach(el => el.style.display = "");
+    });
   }
 
   return (
