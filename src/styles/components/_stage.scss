@@ -95,17 +95,18 @@
   
         &__item {
             width: 100%;
-            cursor: pointer;
             transition: 200ms;
-
-
-            &:hover {
+            
+            
+            &:not(.selected):hover {
                 opacity: .9;
+                cursor: pointer;
             }
 
             &.upload {
                 background-color: grey;
-
+                aspect-ratio: 1 / 1;
+                
                 & label {
                     color: #000000;
                     font-weight: bold;
@@ -117,7 +118,7 @@
                     justify-content: center;
                     align-items: center;
                     cursor: pointer;
-
+                    text-align: center;
                 }
 
                 & input {
@@ -187,12 +188,12 @@
         }
     }
 
-    .titleContainer__title, .flower__quarter__titles, .flower__quarter__circles div, .flower__quarter__images img, .stage__nextButton, .stage__backButton {
+    .stage__titleContainer__title, .flower__quarter__titles, .flower__quarter__circles div, .flower__quarter__images img, .stage__nextButton, .stage__backButton {
         transition: 200ms;
     }
 
     &.step1 {
-        .titleContainer__title {
+        .stage__titleContainer__title {
             color: #B83D44!important;
         }
         .flower__quarter__titles {
@@ -215,7 +216,7 @@
         }
     }
     &.step2 {
-        .titleContainer__title {
+        .stage__titleContainer__title {
             color: #C39252!important;
         }
         .flower__quarter__titles {
@@ -238,7 +239,7 @@
         }
     }
     &.step3 {
-        .titleContainer__title {
+        .stage__titleContainer__title {
             color: #8B995D!important;
         }
         .flower__quarter__titles {
@@ -261,7 +262,7 @@
         }
     }
     &.step4 {
-        .titleContainer__title {
+        .stage__titleContainer__title {
             color: #6F3996!important;
         }
         .flower__quarter__titles {
@@ -284,7 +285,7 @@
         }
     }
     &.step5 {
-        .titleContainer__title {
+        .stage__titleContainer__title {
             color: #3B8B91!important;
         }
         .flower__quarter__titles {
@@ -304,6 +305,14 @@
         }
         .flower__quarter__titles path {
             fill: #3B8B91;
+        }
+    }
+    &.pyramidFinished {
+        .stage__backButton {
+            background-color: #3B8B91;
+        }
+        .stage__nextButton {
+            background-color: #3B8B91;
         }
     }
 }

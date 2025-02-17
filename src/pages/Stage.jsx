@@ -7,14 +7,12 @@ import NextButton from '../assets/arrow-right-circle.svg'
 import DoneButton from '../assets/done-circle.png'
 import {flowerDynamicStepData} from '../data/flower.js'
 
-function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImages, setSelectedOptionImages, setSelectedStageAvatar}) {
+function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImages, setSelectedOptionImages, selectedStageAvatar, setSelectedStageAvatar}) {
 
   const [activeStep, setActiveStep] = useState(0)
   const [isOptionSelected, setIsOptionSelected] = useState(false)
 
   const [isPyramidFinished, setIsPyramidFinished] = useState(false)
-
-  const [uploadedImages, setUploadedImages] = useState([])
 
   const navigate = useNavigate()
 
@@ -24,39 +22,35 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
   }, [])
 
   const handleNext = () => {
-    // debugger
     if(isPyramidFinished) {
       navigate('/final')
     }
-    if(!isOptionSelected) return
-    if(selectedOptions[activeStep] !== '') setIsOptionSelected(false)
-
+    
     if(activeStep !== 4) {
       setActiveStep(p => {
         let nextBlankIndex = p + 1//selectedOptions.indexOf(selectedOptions.find(item => item === ''))
         return nextBlankIndex
       })
+      setIsOptionSelected(selectedOptions[activeStep + 1] !== '')
     } else {
       setIsPyramidFinished(true)
     }
   }
 
   const handlePrev = () => {
-    if(activeStep === 0) return
-
-    // debugger
-    setIsOptionSelected(selectedOptions[activeStep - 1] !== '')
-
+    if(isPyramidFinished) {
+      setIsPyramidFinished(false)
+      return
+    }
+  
     setActiveStep(p => {
       let prevFilledIndex = p - 1//selectedOptions.reverse().indexOf(selectedOptions.find(item => item !== ''))
       return prevFilledIndex
     })
-    
-    setIsPyramidFinished(false)
+    setIsOptionSelected(selectedOptions[activeStep - 1] !== '')    
   }
 
   const selectOption = (content, imgSource) => {
-
     setSelectedOptions((prev) => {
       const newOptions = [...prev];
       newOptions[activeStep] = content; 
@@ -72,38 +66,45 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
     setIsOptionSelected(true)
   }
 
-  const editOption = (index) => {
-    if(selectedOptions[activeStep] === '') return
+  // const editOption = (index) => {
+  //   if(selectedOptions[activeStep] === '') return
  
-    setIsOptionSelected(false)
-    setActiveStep(index)
-    setSelectedOptions((prev) => {
-      const newOptions = [...prev];
-      newOptions[index] = ''; 
-      return newOptions; 
-    });
-    setSelectedOptionImages((prev) => {
-      const newOptions = [...prev];
-      newOptions[index] = ''; 
-      return newOptions; 
-    });
-  }
+  //   setIsOptionSelected(false)
+  //   setActiveStep(index)
+  //   setSelectedOptions((prev) => {
+  //     const newOptions = [...prev];
+  //     newOptions[index] = ''; 
+  //     return newOptions; 
+  //   });
+  //   setSelectedOptionImages((prev) => {
+  //     const newOptions = [...prev];
+  //     newOptions[index] = ''; 
+  //     return newOptions; 
+  //   });
+  // }
 
   const handleUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file); // Create temporary URL for preview
-      setUploadedImages([...uploadedImages, imageUrl]); // Add new image to the list
+      setAvatars([imageUrl])      
+      setSelectedStageAvatar(imageUrl)
+      setIsOptionSelected(true)
     }
   }
 
-  const handleImageSelect = (e) => {
+  const [avatars, setAvatars] = useState(
+    Array.from({ length: 91 }, (_, index) => `/assets/avatars/${index + 1}.jpg`)
+  );
+
+  const handleImageSelect = (e, item) => {
+    setAvatars([item])
     setSelectedStageAvatar(e.target.src)
     setIsOptionSelected(true)
   }
   
   return (
-    <div className={`stage step${activeStep+1}`}>
+    <div className={`stage step${activeStep+1} ${isPyramidFinished ? 'pyramidFinished' : ''}`}>
       {
         !isPyramidFinished ? 
           <>
@@ -114,7 +115,7 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
             </div>
             <div className="stage__flowerPyramidContainer">
               <Flower circleContent={flowerDynamicStepData[activeStep].options} onOptionSelect={(content, imgSource) => selectOption(content, imgSource)} />
-              <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} onEditOption={(index) => editOption(index)} activeStep={activeStep} />
+              <Pyramid selectedOptions={selectedOptions} selectedOptionImages={selectedOptionImages} activeStep={activeStep} />
             </div>
           </> 
         : 
@@ -124,30 +125,42 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
             </div>
             <div className="stage__imageContainer">
               {
-                Array.from({ length: 15 }).concat(uploadedImages).map((item, index) => (
+                avatars.map((item, index) => {
+                  return (
                   <img 
-                    className={`stage__imageContainer__item `} 
+                    className={`stage__imageContainer__item ${selectedStageAvatar?.endsWith(item) ? 'selected' : ''}`} 
                     key={index} 
-                    src={index >= 15 ? item : `/assets/avatars/${index + 1}.jpg`} 
-                    onClick={handleImageSelect} 
+                    src={item}
+                    // src={index >= 15 ? item : `/assets/avatars/${index + 1}.jpg`} 
+                    onClick={(e) => handleImageSelect(e, item)} 
                   />
-                ))
+                )})
               }
-              <div>
-                upload image
+              {
+              !selectedStageAvatar && 
+              <div className="stage__imageContainer__item upload">
+                <label className="">
+                  Upload Image
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleUpload}
+                  />
+                </label>
               </div>
+              }
             </div>
           </>
       }
 
+      {!selectedStageAvatar && 
       <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
           <img src={NextButton} />
       </button>
+      }
       <button className={`stage__nextButton ${!isOptionSelected ? 'disabled' : ''} ${!isPyramidFinished ? 'done' : ''} `} onClick={handleNext}>
-          {/* <img src={NextButton} /> */}
-          <img src={!isPyramidFinished ? NextButton : DoneButton} />
+          <img src={NextButton} />
       </button>
-
 
       <button onClick={() => setIsPyramidFinished(p => !p)}>sadasdasd</button>
     </div>

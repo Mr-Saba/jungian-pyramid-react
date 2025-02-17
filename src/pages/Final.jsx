@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router'
 import finalBackground from '../assets/finalBackground.jpg'
 import Label from '../assets/label.png'
 import Pyramid from '../components/Pyramid'
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 
 function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAvatar}) {
 
@@ -12,9 +14,22 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
   const [answer2, setAnswer2] = useState()
   const [isFinishContentVisible, setIsFinishContentVisible] = useState(false)
 
+  const pdfRef = useRef();
+
+  const handleDownloadPDF = () => {
+    html2canvas(pdfRef.current, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4"); // Portrait mode, millimeters, A4 size
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.save("download.pdf");
+    });
+  }
 
   return (
-    <div className='final'>
+    <div ref={pdfRef} className='final'>
       <img className='final__background' src={finalBackground} />
       <div className='final__content'>
         {
@@ -46,7 +61,12 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
         </>
       </div>
       <img className='final__label' src={Label} />
-      {(answer1?.trim().length > 0 && answer2?.trim().length > 0) && <p className='final__finishText' onClick={() => setIsFinishContentVisible(true)}>finish</p>}
+      {
+        !isFinishContentVisible ?
+          (answer1?.trim().length > 0 && answer2?.trim().length > 0) && <p className='final__finishText' onClick={() => setIsFinishContentVisible(true)}>finish</p>
+        :
+          <p className='final__finishText' onClick={handleDownloadPDF}>download pdf</p>
+      }
     </div>
   )
 }

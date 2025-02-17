@@ -3,7 +3,7 @@ import PyramidImg from '../assets/pyramid.png'
 import {pyramidTextBackgroundImages, pyramidTitles} from '../data/pyramid.js'
 import {flowerDynamicStepData} from '../data/flower.js'
 
-function Pyramid({selectedOptions, selectedOptionImages, onEditOption}) {
+function Pyramid({selectedOptions, selectedOptionImages}) {
   return (
     <div className='pyramid'>
         <div className='pyramid__numerationContainer'>
@@ -21,12 +21,11 @@ function Pyramid({selectedOptions, selectedOptionImages, onEditOption}) {
         </div>
         <div className='pyramid__optionsContainer'>
           {pyramidTextBackgroundImages.map((item, index) => (
-            <div className={`pyramid__optionsContainer__item ${selectedOptions[index] ? 'hoverable' : ''}`} key={index} onClick={() => onEditOption(index)}>
+            <div className={`pyramid__optionsContainer__item`} key={index} >
               <img src={item} />
               {selectedOptions[index] && <>
                   <p className='pyramid__optionsContainer__item__text'>{selectedOptions[index]}</p>
                   <div className='pyramid__optionsContainer__item__selectedImg'>
-                    <div className='pyramid__optionsContainer__item__selectedImg__editIcon'>edit</div>
                     <img src={selectedOptionImages[index]} />
                   </div>
                 </>
