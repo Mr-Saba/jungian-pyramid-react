@@ -332,7 +332,7 @@ const flowerDynamicStepData = [
             [
                 "I transform dreams into reality. Provides exceptional experiences.",
                 "I provide opportunities to challenge norms and inspire change.",
-                "I Leads others to overcome obstacles and achieve greatness.",
+                "I lead others to overcome obstacles and achieve greatness.",
             ],
             [
                 "I turn originality into reality, and inspire others through innovation.",
