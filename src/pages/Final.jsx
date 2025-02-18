@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import finalBackground from '../assets/finalBackground.jpg'
-import Label from '../assets/label.png'
+import LabelBlack from '../assets/labelBlack.png'
 import Pyramid from '../components/Pyramid'
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
@@ -71,7 +71,7 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
           }
         </div>
       </div>
-      {!isFinishContentVisible && <img className='final__label' src={Label} />}
+      {!isFinishContentVisible && <img className='final__label' src={LabelBlack} />}
       {
         !isFinishContentVisible ?
           (answer1?.trim().length > 0 && answer2?.trim().length > 0) && <p className='final__finishText' onClick={() => setIsFinishContentVisible(true)}>finish</p>
