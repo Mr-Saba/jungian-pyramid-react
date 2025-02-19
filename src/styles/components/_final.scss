@@ -39,7 +39,9 @@
                 display: inline-block;
                 @include size(calc(40px * var(--app-scale)));
                 background-color: #F02D01;
-    
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                
                 @media screen and (max-width: 1024px) {
                     width: 26px;
                     height: 26px;
