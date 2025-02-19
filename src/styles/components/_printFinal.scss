@@ -1,0 +1,18 @@
+.printFinal {
+    @media print {
+        .pyramid {
+            // transform: scale(1) translate(-15%, -15%) !important;
+            // width: ;
+            // width: 700px;
+        }
+        .printFinal__content__outcome__imageContainer img {
+            // width: 300px;
+        }
+        &__background {
+            display: none;
+        }
+        textarea {
+            min-height: calc(100px* var(--app-scale));
+        }
+    }
+}

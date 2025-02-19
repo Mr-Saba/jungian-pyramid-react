@@ -5,6 +5,8 @@ import LabelBlack from '../assets/labelBlack.png'
 import Pyramid from '../components/Pyramid'
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+import PrintFinal from '../components/PrintFinal'
+import { createPortal } from 'react-dom'
 
 function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAvatar}) {
 
@@ -15,24 +17,13 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
   const [isFirstAnswered, setIsFirstAnswered] = useState(false)
   const [isFinishContentVisible, setIsFinishContentVisible] = useState(false)
   const [isPdfDownloading, setIsPdfDownloading] = useState(false)
-
+  
   const handleDownloadPDF = async () => {
-    const hiddenElements = document.querySelectorAll(".hide-in-pdf"); // Select elements to hide
-
-    hiddenElements.forEach(el => el.style.display = "none");
-
-    html2canvas(document.querySelector('.app'), { scale: 2 }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4"); // Portrait mode, millimeters, A4 size
-      const imgWidth = 210;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-      pdf.save("download.pdf");
-
-      hiddenElements.forEach(el => el.style.display = "");
-    });
-  }
+    document.documentElement.style.setProperty('--app-scale', 0.6);
+    window.print();
+    window.dispatchEvent(new Event('resize'));
+  };
+  
 
   return (
     <div className='final'>
@@ -76,7 +67,7 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
         !isFinishContentVisible ?
           (answer1?.trim().length > 0 && answer2?.trim().length > 0) && <p className='final__finishText' onClick={() => setIsFinishContentVisible(true)}>finish</p>
         :
-        <p className={`final__finishText hide-in-pdf`} onClick={handleDownloadPDF}>download pdf</p>
+        <p className={`final__finishText`} onClick={handleDownloadPDF}>download pdf</p>
       }
       {(!isFirstAnswered && answer1?.trim().length > 0) && <p className={`final__finishText`} onClick={() => {setIsFirstAnswered(true)}}>next</p>}
     </div>

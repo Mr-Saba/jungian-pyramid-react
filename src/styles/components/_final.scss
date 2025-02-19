@@ -1,4 +1,4 @@
-.final {    
+.final, .printFinal {    
     padding-top: calc(50px * var(--app-scale));
 
     @media screen and (max-width: 1024px) {
@@ -214,6 +214,35 @@
         }
         @media screen and (max-width: 376px) {
             font-size: 20px;
+        }
+    }
+
+
+    @media print {
+        .final__content__outcome {
+            flex-direction: column;
+            justify-content: flex-start;
+            // align-items: flex-start;
+            margin-bottom: 30px;
+            gap: 30px;
+        }
+        .final__content__outcome__imageContainer img {
+            width: 300px!important;
+        }
+        .pyramid {
+            margin-left: -200px;
+        }
+        &__background {
+            display: none;
+        }
+        .final__content__questions__texts__period {
+            height: 250px!important;
+        }
+        textarea {
+            min-height: calc(100px* var(--app-scale));
+        }
+        .final__finishText {
+            display: none;
         }
     }
 }

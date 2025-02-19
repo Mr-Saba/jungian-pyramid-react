@@ -11,3 +11,9 @@
 @import './components/cover';
 @import './components/stage';
 @import './components/final';
+@import './components/printFinal';
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
