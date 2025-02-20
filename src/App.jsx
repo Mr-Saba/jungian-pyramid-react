@@ -4,7 +4,7 @@ import Landing from "./pages/Landing";
 import Stage from "./pages/Stage";
 import Final from "./pages/Final";
 import useAppScale from './hooks/useAppScale'
-import { Routes, Route, useNavigate } from "react-router";
+import { Routes, Route, useNavigate, useLocation } from "react-router";
 
 function App() {
 
@@ -19,8 +19,10 @@ function App() {
   const navigate = useNavigate()
 
   // useEffect(() => {
-  //   navigate('/')
-  // }, [])
+  //   if(period === null) {
+  //     alert()
+  //   }
+  // }, [location.pathname]); // Effect runs whenever the route changes
 
   return (
     <div className={`app`}>
