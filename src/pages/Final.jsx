@@ -3,10 +3,6 @@ import { useNavigate } from 'react-router'
 import finalBackground from '../assets/finalBackground.jpg'
 import LabelBlack from '../assets/labelBlack.png'
 import Pyramid from '../components/Pyramid'
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
-import PrintFinal from '../components/PrintFinal'
-import { createPortal } from 'react-dom'
 
 function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAvatar}) {
 

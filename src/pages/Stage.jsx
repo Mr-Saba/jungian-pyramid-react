@@ -41,6 +41,7 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
   const handlePrev = () => {
     if(isPyramidFinished) {
       setIsPyramidFinished(false)
+      setIsOptionSelected(selectedOptions[activeStep - 1] !== '')
       return
     }
   

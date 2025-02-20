@@ -101,6 +101,8 @@
             left: 0;
             transform: translateX(-50%);
             font-weight: 500;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
 
             &:nth-child(1) {
                 top: 97%;

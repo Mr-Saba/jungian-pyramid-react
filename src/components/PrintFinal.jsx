@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router'
 import finalBackground from '../assets/finalBackground.jpg'
 import LabelBlack from '../assets/labelBlack.png'
 import Pyramid from '../components/Pyramid'
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
 import sdasd from '../assets/avatars/2.jpg'
 
 function PrintFinal({answer1, answer2, selectedStageOptions, selectedStageOptionImages, selectedStageAvatar}) {

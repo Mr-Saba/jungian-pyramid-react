@@ -4,7 +4,7 @@ import Landing from "./pages/Landing";
 import Stage from "./pages/Stage";
 import Final from "./pages/Final";
 import useAppScale from './hooks/useAppScale'
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
 
 function App() {
 
@@ -15,6 +15,12 @@ function App() {
   const [selectedStageOptions, setSelectedStageOptions] = useState(['','','','','',])
   const [selectedStageOptionImages, setSelectedStageOptionImages] = useState(['','','','','',])
   const [selectedStageAvatar, setSelectedStageAvatar] = useState()
+
+  const navigate = useNavigate()
+
+  // useEffect(() => {
+  //   navigate('/')
+  // }, [])
 
   return (
     <div className={`app`}>
