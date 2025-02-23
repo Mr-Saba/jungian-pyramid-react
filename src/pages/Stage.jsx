@@ -20,8 +20,10 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
   useEffect(() => {
     // setActiveStep(4)
     // setIsPyramidFinished(true)
-    setActiveStep(selectedOptions.filter(item => item !== '').length - 1)
-    setIsOptionSelected(selectedOptions[activeStep] !== '')
+    if(selectedOptions.filter(item => item !== '').length !== 0) {
+      setActiveStep(selectedOptions.filter(item => item !== '').length - 1)
+      setIsOptionSelected(selectedOptions[activeStep] !== '')
+    }
   }, [])
 
   const handleNext = () => {
