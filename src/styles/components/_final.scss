@@ -247,4 +247,10 @@
             display: none;
         }
     }
+
+    .stage__pyramidButton  {
+        right: 50%;
+        bottom: calc(80px* var(--app-scale));
+        transform: translateX(50%);
+    }
 }

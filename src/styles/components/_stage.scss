@@ -143,7 +143,7 @@
         }
     }
 
-    &__nextButton, &__backButton {
+    &__nextButton, &__backButton, &__pyramidButton {
         position: fixed;
         bottom: 0;
         right: 0;
@@ -190,6 +190,14 @@
 
         img {
             transform: rotate(-180deg)
+        }
+    }
+    &__pyramidButton {
+        right: calc(100px * var(--app-scale));
+        border-right: calc(1px * var(--app-scale)) solid white;
+        background-color: #F02D01;
+        @media screen and (max-width: 1024px) {
+            right: 50px;
         }
     }
 

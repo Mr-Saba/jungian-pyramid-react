@@ -6,6 +6,7 @@ import Pyramid from "../components/Pyramid"
 import NextButton from '../assets/arrow-right-circle.svg'
 import DoneButton from '../assets/done-circle.png'
 import {flowerDynamicStepData} from '../data/flower.js'
+import PyramidIcon from '../assets/pyramidIcon.svg'
 
 function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImages, setSelectedOptionImages, selectedStageAvatar, setSelectedStageAvatar}) {
 
@@ -19,6 +20,8 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
   useEffect(() => {
     // setActiveStep(4)
     // setIsPyramidFinished(true)
+    setActiveStep(selectedOptions.filter(item => item !== '').length - 1)
+    setIsOptionSelected(selectedOptions[activeStep] !== '')
   }, [])
 
   const handleNext = () => {
@@ -34,7 +37,7 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
       setIsOptionSelected(selectedOptions[activeStep + 1] !== '')
     } else {
       setIsPyramidFinished(true)
-      setIsOptionSelected(false)
+      setIsOptionSelected(selectedStageAvatar ? true : false)
     }
   }
 
@@ -104,6 +107,11 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
     setSelectedStageAvatar(e.target.src)
     setIsOptionSelected(true)
   }
+
+  const handleBackToPyramid = () => {
+    setIsPyramidFinished(false)
+    setIsOptionSelected(selectedOptions[activeStep - 1] !== '')
+  }
   
   return (
     <div className={`stage step${activeStep+1} ${isPyramidFinished ? 'pyramidFinished' : ''}`}>
@@ -155,7 +163,11 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
           </>
       }
 
-      {!selectedStageAvatar && 
+      {(isPyramidFinished && selectedStageAvatar) && <button className={`stage__pyramidButton`} onClick={handleBackToPyramid}>
+          <img src={PyramidIcon} />
+      </button>
+      }
+      {(!selectedStageAvatar) && 
       <button className={`stage__backButton ${activeStep === 0 ? 'disabled' : ''}`} onClick={handlePrev}>
           <img src={NextButton} />
       </button>

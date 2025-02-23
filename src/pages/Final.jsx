@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import finalBackground from '../assets/finalBackground.jpg'
 import LabelBlack from '../assets/labelBlack.png'
 import Pyramid from '../components/Pyramid'
+import PyramidIcon from '../assets/pyramidIcon.svg'
 
 function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAvatar}) {
 
@@ -66,6 +67,12 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
         <p className={`final__finishText`} onClick={handleDownloadPDF}>download pdf</p>
       }
       {(!isFirstAnswered && answer1?.trim().length > 0) && <p className={`final__finishText`} onClick={() => {setIsFirstAnswered(true)}}>next</p>}
+
+      {!isFinishContentVisible && <button className={`stage__pyramidButton`} onClick={() => navigate('/stage')}>
+          <img src={PyramidIcon} />
+      </button>
+
+      }
     </div>
   )
 }

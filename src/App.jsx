@@ -19,8 +19,8 @@ function App() {
   const navigate = useNavigate()
 
   // useEffect(() => {
-  //   if(period === null) {
-  //     alert()
+  //   if(!period) {
+  //     navigate('/')
   //   }
   // }, [location.pathname]); // Effect runs whenever the route changes
 
