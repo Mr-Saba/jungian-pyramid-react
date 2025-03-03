@@ -62,7 +62,7 @@ function Final({selectedStageOptions, selectedStageOptionImages, selectedStageAv
       {!isFinishContentVisible && <img className='final__label' src={LabelBlack} />}
       {
         !isFinishContentVisible ?
-          (answer1?.trim().length > 0 && answer2?.trim().length > 0) && <p className='final__finishText' onClick={() => setIsFinishContentVisible(true)}>finish</p>
+          (answer1?.trim().length > 0 && answer2?.trim().length > 0) && <p className='final__finishText' onClick={() => setIsFinishContentVisible(true)}>end</p>
         :
         <p className={`final__finishText`} onClick={handleDownloadPDF}>download pdf</p>
       }
