@@ -17,7 +17,7 @@ function Flower({circleContent, onOptionSelect}) {
             </div>
             <div className='flower__quarter__circles'>
                 {circleContent[i].map((contentItem, j) =>
-                  <FlowerOption key={j} content={contentItem} onOptionSelect={() => {onOptionSelect(contentItem, item.circles[j].imgSource); console.log(item)}}/>
+                  <FlowerOption key={j} content={contentItem} onOptionSelect={() => {onOptionSelect(contentItem, item.circles[j].imgSource)}}/>
                 )}
             </div>
             <div className='flower__quarter__titles'>

@@ -7,6 +7,7 @@ import NextButton from '../assets/arrow-right-circle.svg'
 import DoneButton from '../assets/done-circle.png'
 import {flowerDynamicStepData} from '../data/flower.js'
 import PyramidIcon from '../assets/pyramidIcon.svg'
+import LazyImage from "../components/LazyImage.jsx"
 
 function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImages, setSelectedOptionImages, selectedStageAvatar, setSelectedStageAvatar}) {
 
@@ -139,11 +140,18 @@ function Stage({period, selectedOptions, setSelectedOptions, selectedOptionImage
               {
                 avatars.map((item, index) => {
                   return (
-                  <img 
-                    className={`stage__imageContainer__item ${selectedStageAvatar?.endsWith(item) ? 'selected' : ''}`} 
-                    key={index} 
-                    src={item}
-                    // src={index >= 15 ? item : `/assets/avatars/${index + 1}.jpg`} 
+                  // <img 
+                  //   className={`stage__imageContainer__item ${selectedStageAvatar?.endsWith(item) ? 'selected' : ''}`} 
+                  //   key={index} 
+                  //   src={item}
+                  //   // src={index >= 15 ? item : `/assets/avatars/${index + 1}.jpg`} 
+                  //   onClick={(e) => handleImageSelect(e, item)} 
+                  // />
+                  <LazyImage 
+                    key={index}
+                    className={`stage__imageContainer__item ${selectedStageAvatar?.endsWith(item) ? 'selected' : ''}`}  
+                    src={item} 
+                    alt={`Avatar ${index + 1}`} 
                     onClick={(e) => handleImageSelect(e, item)} 
                   />
                 )})
